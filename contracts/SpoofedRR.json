@@ -44,24 +44,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50620186a06000556101a2806100276000396000f30060806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd8114610050578063cbc3582c14610077575b600080fd5b34801561005c57600080fd5b506100656100b0565b60408051918252519081900360200190f35b34801561008357600080fd5b506100ae73ffffffffffffffffffffffffffffffffffffffff600435811690602435166044356100b6565b005b60005481565b8273ffffffffffffffffffffffffffffffffffffffff16637f306ba183836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b15801561015957600080fd5b505af115801561016d573d6000803e3d6000fd5b505050505050505600a165627a7a7230582049f9494f289d3c34dcde30dcc40e35ff428151f6cd5f9f0ca3c0568c6fd9b1460029",
-  "deployedBytecode": "0x60806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd8114610050578063cbc3582c14610077575b600080fd5b34801561005c57600080fd5b506100656100b0565b60408051918252519081900360200190f35b34801561008357600080fd5b506100ae73ffffffffffffffffffffffffffffffffffffffff600435811690602435166044356100b6565b005b60005481565b8273ffffffffffffffffffffffffffffffffffffffff16637f306ba183836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b15801561015957600080fd5b505af115801561016d573d6000803e3d6000fd5b505050505050505600a165627a7a7230582049f9494f289d3c34dcde30dcc40e35ff428151f6cd5f9f0ca3c0568c6fd9b1460029",
+  "bytecode": "0x608060405234801561001057600080fd5b50620186a06000556101a2806100276000396000f30060806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd8114610050578063cbc3582c14610077575b600080fd5b34801561005c57600080fd5b506100656100b0565b60408051918252519081900360200190f35b34801561008357600080fd5b506100ae73ffffffffffffffffffffffffffffffffffffffff600435811690602435166044356100b6565b005b60005481565b8273ffffffffffffffffffffffffffffffffffffffff16637f306ba183836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b15801561015957600080fd5b505af115801561016d573d6000803e3d6000fd5b505050505050505600a165627a7a723058205d3df89fcb95bd82bc83c083fbd3a9fcd3df508cb248c30b538f3dec1fa5623e0029",
+  "deployedBytecode": "0x60806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd8114610050578063cbc3582c14610077575b600080fd5b34801561005c57600080fd5b506100656100b0565b60408051918252519081900360200190f35b34801561008357600080fd5b506100ae73ffffffffffffffffffffffffffffffffffffffff600435811690602435166044356100b6565b005b60005481565b8273ffffffffffffffffffffffffffffffffffffffff16637f306ba183836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b15801561015957600080fd5b505af115801561016d573d6000803e3d6000fd5b505050505050505600a165627a7a723058205d3df89fcb95bd82bc83c083fbd3a9fcd3df508cb248c30b538f3dec1fa5623e0029",
   "sourceMap": "54:288:17:-;;;113:57;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;157:6:17;143:11;:20;54:288;;;;;;",
   "deployedSourceMap": "54:288:17:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;80:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;80:26:17;;;;;;;;;;;;;;;;;;;;176:164;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;176:164:17;;;;;;;;;;;;;;;;80:26;;;;:::o;176:164::-;285:9;277:34;;;312:7;321:11;277:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;277:56:17;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;277:56:17;;;;176:164;;;:::o",
   "source": "pragma solidity ^0.4.21;\n\nimport \"./../Project.sol\";\n\ncontract SpoofedRR {\n\n    uint256 public totalSupply;\n\n    constructor () public {\n      totalSupply = 100000;\n    }\n\n    function callStakeReputation(address _projAddr, address _staker, uint256 _reputation) public {\n      Project(_projAddr).stakeReputation(_staker, _reputation);\n    }\n}\n",
-  "sourcePath": "/media/000/Documents/Distribute/distribute-contracts/contracts/test/SpoofedRR.sol",
+  "sourcePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/test/SpoofedRR.sol",
   "ast": {
-    "absolutePath": "/media/000/Documents/Distribute/distribute-contracts/contracts/test/SpoofedRR.sol",
+    "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/test/SpoofedRR.sol",
     "exportedSymbols": {
       "SpoofedRR": [
-        9155
+        9158
       ]
     },
-    "id": 9156,
+    "id": 9159,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9125,
+        "id": 9128,
         "literals": [
           "solidity",
           "^",
@@ -72,12 +72,12 @@
         "src": "0:24:17"
       },
       {
-        "absolutePath": "/media/000/Documents/Distribute/distribute-contracts/contracts/Project.sol",
+        "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/Project.sol",
         "file": "./../Project.sol",
-        "id": 9126,
+        "id": 9129,
         "nodeType": "ImportDirective",
-        "scope": 9156,
-        "sourceUnit": 1337,
+        "scope": 9159,
+        "sourceUnit": 1339,
         "src": "26:26:17",
         "symbolAliases": [],
         "unitAlias": ""
@@ -88,19 +88,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9155,
+        "id": 9158,
         "linearizedBaseContracts": [
-          9155
+          9158
         ],
         "name": "SpoofedRR",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 9128,
+            "id": 9131,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 9155,
+            "scope": 9158,
             "src": "80:26:17",
             "stateVariable": true,
             "storageLocation": "default",
@@ -109,7 +109,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 9127,
+              "id": 9130,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "80:7:17",
@@ -123,25 +123,25 @@
           },
           {
             "body": {
-              "id": 9135,
+              "id": 9138,
               "nodeType": "Block",
               "src": "135:35:17",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 9133,
+                    "id": 9136,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 9131,
+                      "id": 9134,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9128,
+                      "referencedDeclaration": 9131,
                       "src": "143:11:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -153,7 +153,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "313030303030",
-                      "id": 9132,
+                      "id": 9135,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -174,14 +174,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 9134,
+                  "id": 9137,
                   "nodeType": "ExpressionStatement",
                   "src": "143:20:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 9136,
+            "id": 9139,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -189,19 +189,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9129,
+              "id": 9132,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "125:2:17"
             },
             "payable": false,
             "returnParameters": {
-              "id": 9130,
+              "id": 9133,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "135:0:17"
             },
-            "scope": 9155,
+            "scope": 9158,
             "src": "113:57:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -209,7 +209,7 @@
           },
           {
             "body": {
-              "id": 9153,
+              "id": 9156,
               "nodeType": "Block",
               "src": "269:71:17",
               "statements": [
@@ -219,11 +219,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 9149,
+                        "id": 9152,
                         "name": "_staker",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9140,
+                        "referencedDeclaration": 9143,
                         "src": "312:7:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -232,11 +232,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 9150,
+                        "id": 9153,
                         "name": "_reputation",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9142,
+                        "referencedDeclaration": 9145,
                         "src": "321:11:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -260,11 +260,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 9146,
+                            "id": 9149,
                             "name": "_projAddr",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9138,
+                            "referencedDeclaration": 9141,
                             "src": "285:9:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -279,18 +279,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 9145,
+                          "id": 9148,
                           "name": "Project",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1336,
+                          "referencedDeclaration": 1338,
                           "src": "277:7:17",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Project_$1336_$",
+                            "typeIdentifier": "t_type$_t_contract$_Project_$1338_$",
                             "typeString": "type(contract Project)"
                           }
                         },
-                        "id": 9147,
+                        "id": 9150,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -300,25 +300,25 @@
                         "nodeType": "FunctionCall",
                         "src": "277:18:17",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Project_$1336",
+                          "typeIdentifier": "t_contract$_Project_$1338",
                           "typeString": "contract Project"
                         }
                       },
-                      "id": 9148,
+                      "id": 9151,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "stakeReputation",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1255,
+                      "referencedDeclaration": 1257,
                       "src": "277:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256) external"
                       }
                     },
-                    "id": 9151,
+                    "id": 9154,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -332,14 +332,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9152,
+                  "id": 9155,
                   "nodeType": "ExpressionStatement",
                   "src": "277:56:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 9154,
+            "id": 9157,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -347,15 +347,15 @@
             "name": "callStakeReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9143,
+              "id": 9146,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9138,
+                  "id": 9141,
                   "name": "_projAddr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "205:17:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -364,7 +364,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9137,
+                    "id": 9140,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "205:7:17",
@@ -378,10 +378,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9140,
+                  "id": 9143,
                   "name": "_staker",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "224:15:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -390,7 +390,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9139,
+                    "id": 9142,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "224:7:17",
@@ -404,10 +404,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9142,
+                  "id": 9145,
                   "name": "_reputation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "241:19:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -416,7 +416,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 9141,
+                    "id": 9144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "241:7:17",
@@ -433,36 +433,36 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9144,
+              "id": 9147,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "269:0:17"
             },
-            "scope": 9155,
+            "scope": 9158,
             "src": "176:164:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 9156,
+        "scope": 9159,
         "src": "54:288:17"
       }
     ],
     "src": "0:343:17"
   },
   "legacyAST": {
-    "absolutePath": "/media/000/Documents/Distribute/distribute-contracts/contracts/test/SpoofedRR.sol",
+    "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/test/SpoofedRR.sol",
     "exportedSymbols": {
       "SpoofedRR": [
-        9155
+        9158
       ]
     },
-    "id": 9156,
+    "id": 9159,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9125,
+        "id": 9128,
         "literals": [
           "solidity",
           "^",
@@ -473,12 +473,12 @@
         "src": "0:24:17"
       },
       {
-        "absolutePath": "/media/000/Documents/Distribute/distribute-contracts/contracts/Project.sol",
+        "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/Project.sol",
         "file": "./../Project.sol",
-        "id": 9126,
+        "id": 9129,
         "nodeType": "ImportDirective",
-        "scope": 9156,
-        "sourceUnit": 1337,
+        "scope": 9159,
+        "sourceUnit": 1339,
         "src": "26:26:17",
         "symbolAliases": [],
         "unitAlias": ""
@@ -489,19 +489,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9155,
+        "id": 9158,
         "linearizedBaseContracts": [
-          9155
+          9158
         ],
         "name": "SpoofedRR",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 9128,
+            "id": 9131,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 9155,
+            "scope": 9158,
             "src": "80:26:17",
             "stateVariable": true,
             "storageLocation": "default",
@@ -510,7 +510,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 9127,
+              "id": 9130,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "80:7:17",
@@ -524,25 +524,25 @@
           },
           {
             "body": {
-              "id": 9135,
+              "id": 9138,
               "nodeType": "Block",
               "src": "135:35:17",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 9133,
+                    "id": 9136,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 9131,
+                      "id": 9134,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9128,
+                      "referencedDeclaration": 9131,
                       "src": "143:11:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -554,7 +554,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "313030303030",
-                      "id": 9132,
+                      "id": 9135,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -575,14 +575,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 9134,
+                  "id": 9137,
                   "nodeType": "ExpressionStatement",
                   "src": "143:20:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 9136,
+            "id": 9139,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -590,19 +590,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9129,
+              "id": 9132,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "125:2:17"
             },
             "payable": false,
             "returnParameters": {
-              "id": 9130,
+              "id": 9133,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "135:0:17"
             },
-            "scope": 9155,
+            "scope": 9158,
             "src": "113:57:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -610,7 +610,7 @@
           },
           {
             "body": {
-              "id": 9153,
+              "id": 9156,
               "nodeType": "Block",
               "src": "269:71:17",
               "statements": [
@@ -620,11 +620,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 9149,
+                        "id": 9152,
                         "name": "_staker",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9140,
+                        "referencedDeclaration": 9143,
                         "src": "312:7:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -633,11 +633,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 9150,
+                        "id": 9153,
                         "name": "_reputation",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9142,
+                        "referencedDeclaration": 9145,
                         "src": "321:11:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -661,11 +661,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 9146,
+                            "id": 9149,
                             "name": "_projAddr",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9138,
+                            "referencedDeclaration": 9141,
                             "src": "285:9:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -680,18 +680,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 9145,
+                          "id": 9148,
                           "name": "Project",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1336,
+                          "referencedDeclaration": 1338,
                           "src": "277:7:17",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Project_$1336_$",
+                            "typeIdentifier": "t_type$_t_contract$_Project_$1338_$",
                             "typeString": "type(contract Project)"
                           }
                         },
-                        "id": 9147,
+                        "id": 9150,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -701,25 +701,25 @@
                         "nodeType": "FunctionCall",
                         "src": "277:18:17",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Project_$1336",
+                          "typeIdentifier": "t_contract$_Project_$1338",
                           "typeString": "contract Project"
                         }
                       },
-                      "id": 9148,
+                      "id": 9151,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "stakeReputation",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1255,
+                      "referencedDeclaration": 1257,
                       "src": "277:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256) external"
                       }
                     },
-                    "id": 9151,
+                    "id": 9154,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -733,14 +733,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9152,
+                  "id": 9155,
                   "nodeType": "ExpressionStatement",
                   "src": "277:56:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 9154,
+            "id": 9157,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -748,15 +748,15 @@
             "name": "callStakeReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9143,
+              "id": 9146,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9138,
+                  "id": 9141,
                   "name": "_projAddr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "205:17:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -765,7 +765,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9137,
+                    "id": 9140,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "205:7:17",
@@ -779,10 +779,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9140,
+                  "id": 9143,
                   "name": "_staker",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "224:15:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -791,7 +791,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9139,
+                    "id": 9142,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "224:7:17",
@@ -805,10 +805,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9142,
+                  "id": 9145,
                   "name": "_reputation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9154,
+                  "scope": 9157,
                   "src": "241:19:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -817,7 +817,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 9141,
+                    "id": 9144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "241:7:17",
@@ -834,19 +834,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9144,
+              "id": 9147,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "269:0:17"
             },
-            "scope": 9155,
+            "scope": 9158,
             "src": "176:164:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 9156,
+        "scope": 9159,
         "src": "54:288:17"
       }
     ],
@@ -858,5 +858,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-09T09:12:28.120Z"
+  "updatedAt": "2018-11-28T18:55:48.147Z"
 }
