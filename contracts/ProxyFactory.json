@@ -91,14 +91,14 @@
     "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/library/ProxyFactory.sol",
     "exportedSymbols": {
       "ProxyFactory": [
-        9028
+        9025
       ]
     },
-    "id": 9029,
+    "id": 9026,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8935,
+        "id": 8932,
         "literals": [
           "solidity",
           "^",
@@ -114,9 +114,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9028,
+        "id": 9025,
         "linearizedBaseContracts": [
-          9028
+          9025
         ],
         "name": "ProxyFactory",
         "nodeType": "ContractDefinition",
@@ -124,20 +124,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 8941,
+            "id": 8938,
             "name": "ProxyDeployed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 8940,
+              "id": 8937,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8937,
+                  "id": 8934,
                   "indexed": false,
                   "name": "proxyAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8941,
+                  "scope": 8938,
                   "src": "1954:20:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -146,7 +146,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8936,
+                    "id": 8933,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1954:7:15",
@@ -160,11 +160,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 8939,
+                  "id": 8936,
                   "indexed": false,
                   "name": "targetAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8941,
+                  "scope": 8938,
                   "src": "1976:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -173,7 +173,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8938,
+                    "id": 8935,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1976:7:15",
@@ -193,20 +193,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 8948,
+            "id": 8945,
             "name": "ProxiesDeployed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 8947,
+              "id": 8944,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8944,
+                  "id": 8941,
                   "indexed": false,
                   "name": "proxyAddresses",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8948,
+                  "scope": 8945,
                   "src": "2026:24:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -216,7 +216,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 8942,
+                      "id": 8939,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "2026:7:15",
@@ -225,7 +225,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 8943,
+                    "id": 8940,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2026:9:15",
@@ -239,11 +239,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 8946,
+                  "id": 8943,
                   "indexed": false,
                   "name": "targetAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8948,
+                  "scope": 8945,
                   "src": "2052:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -252,7 +252,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8945,
+                    "id": 8942,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2052:7:15",
@@ -271,21 +271,21 @@
           },
           {
             "body": {
-              "id": 8993,
+              "id": 8990,
               "nodeType": "Block",
               "src": "2173:251:15",
               "statements": [
                 {
                   "assignments": [
-                    8960
+                    8957
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8960,
+                      "id": 8957,
                       "name": "proxyAddresses",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8994,
+                      "scope": 8991,
                       "src": "2183:31:15",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -295,7 +295,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 8958,
+                          "id": 8955,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "2183:7:15",
@@ -304,7 +304,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8959,
+                        "id": 8956,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "2183:9:15",
@@ -317,17 +317,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8966,
+                  "id": 8963,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8964,
+                        "id": 8961,
                         "name": "_count",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8950,
+                        "referencedDeclaration": 8947,
                         "src": "2231:6:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -342,7 +342,7 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8963,
+                      "id": 8960,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -355,7 +355,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 8961,
+                          "id": 8958,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "2221:7:15",
@@ -364,7 +364,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8962,
+                        "id": 8959,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "2221:9:15",
@@ -374,7 +374,7 @@
                         }
                       }
                     },
-                    "id": 8965,
+                    "id": 8962,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -393,14 +393,14 @@
                 },
                 {
                   "body": {
-                    "id": 8986,
+                    "id": 8983,
                     "nodeType": "Block",
                     "src": "2286:76:15",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8984,
+                          "id": 8981,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -409,25 +409,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 8977,
+                              "id": 8974,
                               "name": "proxyAddresses",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8960,
+                              "referencedDeclaration": 8957,
                               "src": "2300:14:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                                 "typeString": "address[] memory"
                               }
                             },
-                            "id": 8979,
+                            "id": 8976,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 8978,
+                              "id": 8975,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8968,
+                              "referencedDeclaration": 8965,
                               "src": "2315:1:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -452,11 +452,11 @@
                             "arguments": [
                               {
                                 "argumentTypes": null,
-                                "id": 8981,
+                                "id": 8978,
                                 "name": "_target",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8952,
+                                "referencedDeclaration": 8949,
                                 "src": "2336:7:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -465,11 +465,11 @@
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 8982,
+                                "id": 8979,
                                 "name": "_data",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8954,
+                                "referencedDeclaration": 8951,
                                 "src": "2345:5:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes_memory_ptr",
@@ -488,18 +488,18 @@
                                   "typeString": "bytes memory"
                                 }
                               ],
-                              "id": 8980,
+                              "id": 8977,
                               "name": "createProxyImpl",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 9027,
+                              "referencedDeclaration": 9024,
                               "src": "2320:15:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_address_$",
                                 "typeString": "function (address,bytes memory) returns (address)"
                               }
                             },
-                            "id": 8983,
+                            "id": 8980,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -519,7 +519,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8985,
+                        "id": 8982,
                         "nodeType": "ExpressionStatement",
                         "src": "2300:51:15"
                       }
@@ -531,18 +531,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 8973,
+                    "id": 8970,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 8971,
+                      "id": 8968,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8968,
+                      "referencedDeclaration": 8965,
                       "src": "2269:1:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -553,11 +553,11 @@
                     "operator": "<",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 8972,
+                      "id": 8969,
                       "name": "_count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8950,
+                      "referencedDeclaration": 8947,
                       "src": "2273:6:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -570,18 +570,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 8987,
+                  "id": 8984,
                   "initializationExpression": {
                     "assignments": [
-                      8968
+                      8965
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 8968,
+                        "id": 8965,
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 8994,
+                        "scope": 8991,
                         "src": "2254:9:15",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -590,7 +590,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 8967,
+                          "id": 8964,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "2254:7:15",
@@ -603,11 +603,11 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 8970,
+                    "id": 8967,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 8969,
+                      "id": 8966,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -628,7 +628,7 @@
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 8975,
+                      "id": 8972,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -639,11 +639,11 @@
                       "src": "2281:3:15",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 8974,
+                        "id": 8971,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8968,
+                        "referencedDeclaration": 8965,
                         "src": "2283:1:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -655,7 +655,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 8976,
+                    "id": 8973,
                     "nodeType": "ExpressionStatement",
                     "src": "2281:3:15"
                   },
@@ -668,11 +668,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8989,
+                        "id": 8986,
                         "name": "proxyAddresses",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8960,
+                        "referencedDeclaration": 8957,
                         "src": "2393:14:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
@@ -681,11 +681,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8990,
+                        "id": 8987,
                         "name": "_target",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8952,
+                        "referencedDeclaration": 8949,
                         "src": "2409:7:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -704,18 +704,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 8988,
+                      "id": 8985,
                       "name": "ProxiesDeployed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8948,
+                      "referencedDeclaration": 8945,
                       "src": "2377:15:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_array$_t_address_$dyn_memory_ptr_$_t_address_$returns$__$",
                         "typeString": "function (address[] memory,address)"
                       }
                     },
-                    "id": 8991,
+                    "id": 8988,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -729,14 +729,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8992,
+                  "id": 8989,
                   "nodeType": "EmitStatement",
                   "src": "2372:45:15"
                 }
               ]
             },
             "documentation": null,
-            "id": 8994,
+            "id": 8991,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -744,15 +744,15 @@
             "name": "createManyProxies",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8955,
+              "id": 8952,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8950,
+                  "id": 8947,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2108:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -761,7 +761,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8949,
+                    "id": 8946,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2108:7:15",
@@ -775,10 +775,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8952,
+                  "id": 8949,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2124:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -787,7 +787,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8951,
+                    "id": 8948,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2124:7:15",
@@ -801,10 +801,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8954,
+                  "id": 8951,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2141:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -813,7 +813,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8953,
+                    "id": 8950,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2141:5:15",
@@ -830,12 +830,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 8956,
+              "id": 8953,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2173:0:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2081:343:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -843,25 +843,25 @@
           },
           {
             "body": {
-              "id": 9015,
+              "id": 9012,
               "nodeType": "Block",
               "src": "2540:117:15",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 9008,
+                    "id": 9005,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 9003,
+                      "id": 9000,
                       "name": "proxyContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9001,
+                      "referencedDeclaration": 8998,
                       "src": "2550:13:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -875,11 +875,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 9005,
+                          "id": 9002,
                           "name": "_target",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8996,
+                          "referencedDeclaration": 8993,
                           "src": "2582:7:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -888,11 +888,11 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 9006,
+                          "id": 9003,
                           "name": "_data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8998,
+                          "referencedDeclaration": 8995,
                           "src": "2591:5:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -911,18 +911,18 @@
                             "typeString": "bytes memory"
                           }
                         ],
-                        "id": 9004,
+                        "id": 9001,
                         "name": "createProxyImpl",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9027,
+                        "referencedDeclaration": 9024,
                         "src": "2566:15:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_address_$",
                           "typeString": "function (address,bytes memory) returns (address)"
                         }
                       },
-                      "id": 9007,
+                      "id": 9004,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -942,7 +942,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 9009,
+                  "id": 9006,
                   "nodeType": "ExpressionStatement",
                   "src": "2550:47:15"
                 },
@@ -952,11 +952,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 9011,
+                        "id": 9008,
                         "name": "proxyContract",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9001,
+                        "referencedDeclaration": 8998,
                         "src": "2627:13:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -965,11 +965,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 9012,
+                        "id": 9009,
                         "name": "_target",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8996,
+                        "referencedDeclaration": 8993,
                         "src": "2642:7:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -988,18 +988,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 9010,
+                      "id": 9007,
                       "name": "ProxyDeployed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8941,
+                      "referencedDeclaration": 8938,
                       "src": "2613:13:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address)"
                       }
                     },
-                    "id": 9013,
+                    "id": 9010,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1013,14 +1013,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9014,
+                  "id": 9011,
                   "nodeType": "EmitStatement",
                   "src": "2608:42:15"
                 }
               ]
             },
             "documentation": null,
-            "id": 9016,
+            "id": 9013,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1028,15 +1028,15 @@
             "name": "createProxy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8999,
+              "id": 8996,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8996,
+                  "id": 8993,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2451:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1045,7 +1045,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8995,
+                    "id": 8992,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2451:7:15",
@@ -1059,10 +1059,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8998,
+                  "id": 8995,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2468:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1071,7 +1071,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8997,
+                    "id": 8994,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2468:5:15",
@@ -1088,15 +1088,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9002,
+              "id": 8999,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9001,
+                  "id": 8998,
                   "name": "proxyContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2513:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1105,7 +1105,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9000,
+                    "id": 8997,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2513:7:15",
@@ -1120,7 +1120,7 @@
               ],
               "src": "2512:23:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2430:227:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1128,7 +1128,7 @@
           },
           {
             "body": {
-              "id": 9026,
+              "id": 9023,
               "nodeType": "Block",
               "src": "2779:1199:15",
               "statements": [
@@ -1136,7 +1136,7 @@
                   "externalReferences": [
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3453:13:15",
@@ -1145,7 +1145,7 @@
                     },
                     {
                       "_target": {
-                        "declaration": 9018,
+                        "declaration": 9015,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2948:7:15",
@@ -1154,7 +1154,7 @@
                     },
                     {
                       "_data": {
-                        "declaration": 9020,
+                        "declaration": 9017,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3754:5:15",
@@ -1163,7 +1163,7 @@
                     },
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3557:13:15",
@@ -1172,7 +1172,7 @@
                     },
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3841:13:15",
@@ -1181,7 +1181,7 @@
                     },
                     {
                       "_data": {
-                        "declaration": 9020,
+                        "declaration": 9017,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3863:5:15",
@@ -1189,7 +1189,7 @@
                       }
                     }
                   ],
-                  "id": 9025,
+                  "id": 9022,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let contractCode := mload(0x40)\n    mstore(add(contractCode, 0x0b), _target)\n    mstore(sub(contractCode, 0x09), 0x000000000000000000603160008181600b9039f3600080808080368092803773)\n    mstore(add(contractCode, 0x2b), 0x5af43d828181803e808314602f57f35bfd000000000000000000000000000000)\n    proxyContract := create(0, contractCode, 60)\n    if iszero(extcodesize(proxyContract))\n    {\n        revert(0, 0)\n    }\n    let dataLength := mload(_data)\n    if iszero(iszero(dataLength))\n    {\n        if iszero(call(gas(), proxyContract, 0, add(_data, 0x20), dataLength, 0, 0))\n        {\n            revert(0, 0)\n        }\n    }\n}",
                   "src": "2789:1189:15"
@@ -1197,7 +1197,7 @@
               ]
             },
             "documentation": null,
-            "id": 9027,
+            "id": 9024,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1205,15 +1205,15 @@
             "name": "createProxyImpl",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9021,
+              "id": 9018,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9018,
+                  "id": 9015,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2688:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1222,7 +1222,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9017,
+                    "id": 9014,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2688:7:15",
@@ -1236,10 +1236,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9020,
+                  "id": 9017,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2705:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1248,7 +1248,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 9019,
+                    "id": 9016,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2705:5:15",
@@ -1265,15 +1265,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9024,
+              "id": 9021,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9023,
+                  "id": 9020,
                   "name": "proxyContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2752:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1282,7 +1282,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9022,
+                    "id": 9019,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2752:7:15",
@@ -1297,14 +1297,14 @@
               ],
               "src": "2751:23:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2663:1315:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 9029,
+        "scope": 9026,
         "src": "1906:2074:15"
       }
     ],
@@ -1314,14 +1314,14 @@
     "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/library/ProxyFactory.sol",
     "exportedSymbols": {
       "ProxyFactory": [
-        9028
+        9025
       ]
     },
-    "id": 9029,
+    "id": 9026,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8935,
+        "id": 8932,
         "literals": [
           "solidity",
           "^",
@@ -1337,9 +1337,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9028,
+        "id": 9025,
         "linearizedBaseContracts": [
-          9028
+          9025
         ],
         "name": "ProxyFactory",
         "nodeType": "ContractDefinition",
@@ -1347,20 +1347,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 8941,
+            "id": 8938,
             "name": "ProxyDeployed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 8940,
+              "id": 8937,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8937,
+                  "id": 8934,
                   "indexed": false,
                   "name": "proxyAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8941,
+                  "scope": 8938,
                   "src": "1954:20:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1369,7 +1369,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8936,
+                    "id": 8933,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1954:7:15",
@@ -1383,11 +1383,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 8939,
+                  "id": 8936,
                   "indexed": false,
                   "name": "targetAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8941,
+                  "scope": 8938,
                   "src": "1976:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1396,7 +1396,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8938,
+                    "id": 8935,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1976:7:15",
@@ -1416,20 +1416,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 8948,
+            "id": 8945,
             "name": "ProxiesDeployed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 8947,
+              "id": 8944,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8944,
+                  "id": 8941,
                   "indexed": false,
                   "name": "proxyAddresses",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8948,
+                  "scope": 8945,
                   "src": "2026:24:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1439,7 +1439,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 8942,
+                      "id": 8939,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "2026:7:15",
@@ -1448,7 +1448,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 8943,
+                    "id": 8940,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2026:9:15",
@@ -1462,11 +1462,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 8946,
+                  "id": 8943,
                   "indexed": false,
                   "name": "targetAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8948,
+                  "scope": 8945,
                   "src": "2052:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1475,7 +1475,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8945,
+                    "id": 8942,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2052:7:15",
@@ -1494,21 +1494,21 @@
           },
           {
             "body": {
-              "id": 8993,
+              "id": 8990,
               "nodeType": "Block",
               "src": "2173:251:15",
               "statements": [
                 {
                   "assignments": [
-                    8960
+                    8957
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8960,
+                      "id": 8957,
                       "name": "proxyAddresses",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8994,
+                      "scope": 8991,
                       "src": "2183:31:15",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -1518,7 +1518,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 8958,
+                          "id": 8955,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "2183:7:15",
@@ -1527,7 +1527,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8959,
+                        "id": 8956,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "2183:9:15",
@@ -1540,17 +1540,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8966,
+                  "id": 8963,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8964,
+                        "id": 8961,
                         "name": "_count",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8950,
+                        "referencedDeclaration": 8947,
                         "src": "2231:6:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1565,7 +1565,7 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8963,
+                      "id": 8960,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1578,7 +1578,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 8961,
+                          "id": 8958,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "2221:7:15",
@@ -1587,7 +1587,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8962,
+                        "id": 8959,
                         "length": null,
                         "nodeType": "ArrayTypeName",
                         "src": "2221:9:15",
@@ -1597,7 +1597,7 @@
                         }
                       }
                     },
-                    "id": 8965,
+                    "id": 8962,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1616,14 +1616,14 @@
                 },
                 {
                   "body": {
-                    "id": 8986,
+                    "id": 8983,
                     "nodeType": "Block",
                     "src": "2286:76:15",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8984,
+                          "id": 8981,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1632,25 +1632,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 8977,
+                              "id": 8974,
                               "name": "proxyAddresses",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8960,
+                              "referencedDeclaration": 8957,
                               "src": "2300:14:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                                 "typeString": "address[] memory"
                               }
                             },
-                            "id": 8979,
+                            "id": 8976,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 8978,
+                              "id": 8975,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8968,
+                              "referencedDeclaration": 8965,
                               "src": "2315:1:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1675,11 +1675,11 @@
                             "arguments": [
                               {
                                 "argumentTypes": null,
-                                "id": 8981,
+                                "id": 8978,
                                 "name": "_target",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8952,
+                                "referencedDeclaration": 8949,
                                 "src": "2336:7:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -1688,11 +1688,11 @@
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 8982,
+                                "id": 8979,
                                 "name": "_data",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8954,
+                                "referencedDeclaration": 8951,
                                 "src": "2345:5:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes_memory_ptr",
@@ -1711,18 +1711,18 @@
                                   "typeString": "bytes memory"
                                 }
                               ],
-                              "id": 8980,
+                              "id": 8977,
                               "name": "createProxyImpl",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 9027,
+                              "referencedDeclaration": 9024,
                               "src": "2320:15:15",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_address_$",
                                 "typeString": "function (address,bytes memory) returns (address)"
                               }
                             },
-                            "id": 8983,
+                            "id": 8980,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1742,7 +1742,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 8985,
+                        "id": 8982,
                         "nodeType": "ExpressionStatement",
                         "src": "2300:51:15"
                       }
@@ -1754,18 +1754,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 8973,
+                    "id": 8970,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 8971,
+                      "id": 8968,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8968,
+                      "referencedDeclaration": 8965,
                       "src": "2269:1:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1776,11 +1776,11 @@
                     "operator": "<",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 8972,
+                      "id": 8969,
                       "name": "_count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8950,
+                      "referencedDeclaration": 8947,
                       "src": "2273:6:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1793,18 +1793,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 8987,
+                  "id": 8984,
                   "initializationExpression": {
                     "assignments": [
-                      8968
+                      8965
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 8968,
+                        "id": 8965,
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 8994,
+                        "scope": 8991,
                         "src": "2254:9:15",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -1813,7 +1813,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 8967,
+                          "id": 8964,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "2254:7:15",
@@ -1826,11 +1826,11 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 8970,
+                    "id": 8967,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 8969,
+                      "id": 8966,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1851,7 +1851,7 @@
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 8975,
+                      "id": 8972,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1862,11 +1862,11 @@
                       "src": "2281:3:15",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 8974,
+                        "id": 8971,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8968,
+                        "referencedDeclaration": 8965,
                         "src": "2283:1:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1878,7 +1878,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 8976,
+                    "id": 8973,
                     "nodeType": "ExpressionStatement",
                     "src": "2281:3:15"
                   },
@@ -1891,11 +1891,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8989,
+                        "id": 8986,
                         "name": "proxyAddresses",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8960,
+                        "referencedDeclaration": 8957,
                         "src": "2393:14:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
@@ -1904,11 +1904,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8990,
+                        "id": 8987,
                         "name": "_target",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8952,
+                        "referencedDeclaration": 8949,
                         "src": "2409:7:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1927,18 +1927,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 8988,
+                      "id": 8985,
                       "name": "ProxiesDeployed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8948,
+                      "referencedDeclaration": 8945,
                       "src": "2377:15:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_array$_t_address_$dyn_memory_ptr_$_t_address_$returns$__$",
                         "typeString": "function (address[] memory,address)"
                       }
                     },
-                    "id": 8991,
+                    "id": 8988,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1952,14 +1952,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8992,
+                  "id": 8989,
                   "nodeType": "EmitStatement",
                   "src": "2372:45:15"
                 }
               ]
             },
             "documentation": null,
-            "id": 8994,
+            "id": 8991,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1967,15 +1967,15 @@
             "name": "createManyProxies",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8955,
+              "id": 8952,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8950,
+                  "id": 8947,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2108:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1984,7 +1984,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8949,
+                    "id": 8946,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2108:7:15",
@@ -1998,10 +1998,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8952,
+                  "id": 8949,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2124:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2010,7 +2010,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8951,
+                    "id": 8948,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2124:7:15",
@@ -2024,10 +2024,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8954,
+                  "id": 8951,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8994,
+                  "scope": 8991,
                   "src": "2141:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2036,7 +2036,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8953,
+                    "id": 8950,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2141:5:15",
@@ -2053,12 +2053,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 8956,
+              "id": 8953,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2173:0:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2081:343:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2066,25 +2066,25 @@
           },
           {
             "body": {
-              "id": 9015,
+              "id": 9012,
               "nodeType": "Block",
               "src": "2540:117:15",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 9008,
+                    "id": 9005,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 9003,
+                      "id": 9000,
                       "name": "proxyContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9001,
+                      "referencedDeclaration": 8998,
                       "src": "2550:13:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2098,11 +2098,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 9005,
+                          "id": 9002,
                           "name": "_target",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8996,
+                          "referencedDeclaration": 8993,
                           "src": "2582:7:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -2111,11 +2111,11 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 9006,
+                          "id": 9003,
                           "name": "_data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8998,
+                          "referencedDeclaration": 8995,
                           "src": "2591:5:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -2134,18 +2134,18 @@
                             "typeString": "bytes memory"
                           }
                         ],
-                        "id": 9004,
+                        "id": 9001,
                         "name": "createProxyImpl",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9027,
+                        "referencedDeclaration": 9024,
                         "src": "2566:15:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_address_$",
                           "typeString": "function (address,bytes memory) returns (address)"
                         }
                       },
-                      "id": 9007,
+                      "id": 9004,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2165,7 +2165,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 9009,
+                  "id": 9006,
                   "nodeType": "ExpressionStatement",
                   "src": "2550:47:15"
                 },
@@ -2175,11 +2175,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 9011,
+                        "id": 9008,
                         "name": "proxyContract",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 9001,
+                        "referencedDeclaration": 8998,
                         "src": "2627:13:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2188,11 +2188,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 9012,
+                        "id": 9009,
                         "name": "_target",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8996,
+                        "referencedDeclaration": 8993,
                         "src": "2642:7:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2211,18 +2211,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 9010,
+                      "id": 9007,
                       "name": "ProxyDeployed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8941,
+                      "referencedDeclaration": 8938,
                       "src": "2613:13:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address)"
                       }
                     },
-                    "id": 9013,
+                    "id": 9010,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2236,14 +2236,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9014,
+                  "id": 9011,
                   "nodeType": "EmitStatement",
                   "src": "2608:42:15"
                 }
               ]
             },
             "documentation": null,
-            "id": 9016,
+            "id": 9013,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2251,15 +2251,15 @@
             "name": "createProxy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8999,
+              "id": 8996,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8996,
+                  "id": 8993,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2451:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2268,7 +2268,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8995,
+                    "id": 8992,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2451:7:15",
@@ -2282,10 +2282,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 8998,
+                  "id": 8995,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2468:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2294,7 +2294,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8997,
+                    "id": 8994,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2468:5:15",
@@ -2311,15 +2311,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9002,
+              "id": 8999,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9001,
+                  "id": 8998,
                   "name": "proxyContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9016,
+                  "scope": 9013,
                   "src": "2513:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2328,7 +2328,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9000,
+                    "id": 8997,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2513:7:15",
@@ -2343,7 +2343,7 @@
               ],
               "src": "2512:23:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2430:227:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2351,7 +2351,7 @@
           },
           {
             "body": {
-              "id": 9026,
+              "id": 9023,
               "nodeType": "Block",
               "src": "2779:1199:15",
               "statements": [
@@ -2359,7 +2359,7 @@
                   "externalReferences": [
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3453:13:15",
@@ -2368,7 +2368,7 @@
                     },
                     {
                       "_target": {
-                        "declaration": 9018,
+                        "declaration": 9015,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2948:7:15",
@@ -2377,7 +2377,7 @@
                     },
                     {
                       "_data": {
-                        "declaration": 9020,
+                        "declaration": 9017,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3754:5:15",
@@ -2386,7 +2386,7 @@
                     },
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3557:13:15",
@@ -2395,7 +2395,7 @@
                     },
                     {
                       "proxyContract": {
-                        "declaration": 9023,
+                        "declaration": 9020,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3841:13:15",
@@ -2404,7 +2404,7 @@
                     },
                     {
                       "_data": {
-                        "declaration": 9020,
+                        "declaration": 9017,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "3863:5:15",
@@ -2412,7 +2412,7 @@
                       }
                     }
                   ],
-                  "id": 9025,
+                  "id": 9022,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let contractCode := mload(0x40)\n    mstore(add(contractCode, 0x0b), _target)\n    mstore(sub(contractCode, 0x09), 0x000000000000000000603160008181600b9039f3600080808080368092803773)\n    mstore(add(contractCode, 0x2b), 0x5af43d828181803e808314602f57f35bfd000000000000000000000000000000)\n    proxyContract := create(0, contractCode, 60)\n    if iszero(extcodesize(proxyContract))\n    {\n        revert(0, 0)\n    }\n    let dataLength := mload(_data)\n    if iszero(iszero(dataLength))\n    {\n        if iszero(call(gas(), proxyContract, 0, add(_data, 0x20), dataLength, 0, 0))\n        {\n            revert(0, 0)\n        }\n    }\n}",
                   "src": "2789:1189:15"
@@ -2420,7 +2420,7 @@
               ]
             },
             "documentation": null,
-            "id": 9027,
+            "id": 9024,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2428,15 +2428,15 @@
             "name": "createProxyImpl",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9021,
+              "id": 9018,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9018,
+                  "id": 9015,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2688:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2445,7 +2445,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9017,
+                    "id": 9014,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2688:7:15",
@@ -2459,10 +2459,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 9020,
+                  "id": 9017,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2705:11:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2471,7 +2471,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 9019,
+                    "id": 9016,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2705:5:15",
@@ -2488,15 +2488,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 9024,
+              "id": 9021,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9023,
+                  "id": 9020,
                   "name": "proxyContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9027,
+                  "scope": 9024,
                   "src": "2752:21:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2505,7 +2505,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9022,
+                    "id": 9019,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2752:7:15",
@@ -2520,14 +2520,14 @@
               ],
               "src": "2751:23:15"
             },
-            "scope": 9028,
+            "scope": 9025,
             "src": "2663:1315:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 9029,
+        "scope": 9026,
         "src": "1906:2074:15"
       }
     ],
@@ -2539,5 +2539,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-28T18:55:48.157Z"
+  "updatedAt": "2018-11-28T20:21:59.590Z"
 }

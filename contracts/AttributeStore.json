@@ -240,7 +240,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9173,
+                            "referencedDeclaration": 9325,
                             "src": "263:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -287,7 +287,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9180,
+                      "referencedDeclaration": 9332,
                       "src": "253:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -599,7 +599,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9173,
+                            "referencedDeclaration": 9325,
                             "src": "478:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -646,7 +646,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9180,
+                      "referencedDeclaration": 9332,
                       "src": "468:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -1081,7 +1081,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9173,
+                            "referencedDeclaration": 9325,
                             "src": "263:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -1128,7 +1128,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9180,
+                      "referencedDeclaration": 9332,
                       "src": "253:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -1440,7 +1440,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 9173,
+                            "referencedDeclaration": 9325,
                             "src": "478:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -1487,7 +1487,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 9180,
+                      "referencedDeclaration": 9332,
                       "src": "468:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -1757,10 +1757,10 @@
     "1543421260193": {
       "events": {},
       "links": {},
-      "address": "0xd81f95d4644efe9a70cbbb0326dadc0d10b087c9",
-      "transactionHash": "0x88cd0160f9b295a0444337abf3c934357ee2a08a74f2bb209f399d1457f262de"
+      "address": "0x14256c369fac84e1f2447926c609463a09a91fb0",
+      "transactionHash": "0x554ab1a434196737601a7175b6e9f4fdadce8394c33e78329f29ad83318ab351"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-28T19:10:33.361Z"
+  "updatedAt": "2018-11-28T20:22:00.746Z"
 }
