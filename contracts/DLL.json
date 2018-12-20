@@ -22,7 +22,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x07d29ac9"
     },
     {
       "constant": true,
@@ -45,7 +46,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x30fe0a0a"
     },
     {
       "constant": false,
@@ -71,7 +73,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x9735c51b"
     },
     {
       "constant": false,
@@ -89,35 +92,36 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x6d900ed0"
     }
   ],
-  "bytecode": "0x6101b7610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600436106100785763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166307d29ac9811461007d57806330fe0a0a1461009d5780636d900ed0146100ab5780639735c51b146100c8575b600080fd5b61008b6004356024356100e9565b60408051918252519081900360200190f35b61008b6004356024356100fc565b8180156100b757600080fd5b506100c6600435602435610112565b005b8180156100d457600080fd5b506100c660043560243560443560643561015c565b6000908152602091909152604090205490565b6000908152602091909152604090206001015490565b60008061011f84846100e9565b915061012b84846100fc565b6000838152602095909552604080862060019081018390559186528086209390935583855291909320828155015550565b6000828152602094909452604080852060018082018690559083905593855280852083905590845290922001555600a165627a7a7230582077cbc8717397270f3f9e730abf1d9fcbcbccf2bcaeb9c12c64ce865a28d11e7e0029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100785763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166307d29ac9811461007d57806330fe0a0a1461009d5780636d900ed0146100ab5780639735c51b146100c8575b600080fd5b61008b6004356024356100e9565b60408051918252519081900360200190f35b61008b6004356024356100fc565b8180156100b757600080fd5b506100c6600435602435610112565b005b8180156100d457600080fd5b506100c660043560243560443560643561015c565b6000908152602091909152604090205490565b6000908152602091909152604090206001015490565b60008061011f84846100e9565b915061012b84846100fc565b6000838152602095909552604080862060019081018390559186528086209390935583855291909320828155015550565b6000828152602094909452604080852060018082018690559083905593855280852083905590845290922001555600a165627a7a7230582077cbc8717397270f3f9e730abf1d9fcbcbccf2bcaeb9c12c64ce865a28d11e7e0029",
-  "sourceMap": "28:842:8:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "28:842:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;146:112;;;;;;;;;;;;;;;;;;;;;;;;263;;;;;;;;602:265;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;602:265:8;;;;;;;;;380:217;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;380:217:8;;;;;;;;;;;146:112;215:4;233:15;;;;;;;;;;;:20;;146:112::o;263:::-;332:4;350:15;;;;;;;;;;;:20;;;;263:112::o;602:265::-;661:9;698;673:20;681:4;687:5;673:7;:20::i;:::-;661:32;;710:20;718:4;724:5;710:7;:20::i;:::-;737:8;:14;;;;;;;;;;;;:19;;;;:26;;;768:14;;;;;;:26;;;;801:15;;;;;;;:28;;;834:20;:28;-1:-1:-1;602:265:8:o;380:217::-;463:8;:15;;;;;;;;;;;;:20;;;;:28;;;496;;;;531:15;;;;;;:28;;;564:15;;;;;;:20;:28;380:217::o",
-  "source": "pragma solidity ^0.4.21;\r\n\r\nlibrary DLL {\r\n\tstruct Node {\r\n\t\tuint next;\r\n\t\tuint prev;\r\n\t}\r\n\r\n\tstruct Data {\r\n\t\tmapping(uint => Node) dll;\r\n\t}\r\n\r\n\tfunction getNext(Data storage self, uint _curr) public view returns (uint) {\r\n\t\treturn self.dll[_curr].next;\r\n\t}\r\n\r\n\tfunction getPrev(Data storage self, uint _curr) public view returns (uint) {\r\n\t\treturn self.dll[_curr].prev;\r\n\t}\r\n\r\n\tfunction insert(Data storage self, uint _prev, uint _curr, uint _next) public {\r\n\t\tself.dll[_curr].prev = _prev;\r\n\t\tself.dll[_curr].next = _next;\r\n\r\n\t\tself.dll[_prev].next = _curr;\r\n\t\tself.dll[_next].prev = _curr;\r\n\t}\r\n\r\n\tfunction remove(Data storage self, uint _curr) public {\r\n\t\tuint next = getNext(self, _curr);\r\n\t\tuint prev = getPrev(self, _curr);\r\n\r\n\t\tself.dll[next].prev = prev;\r\n\t\tself.dll[prev].next = next;\r\n\r\n\t\tself.dll[_curr].next = _curr;\r\n\t\tself.dll[_curr].prev = _curr;\r\n\t}\r\n}\r\n",
-  "sourcePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/library/DLL.sol",
+  "bytecode": "0x610212610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100785763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166307d29ac9811461007d57806330fe0a0a146100b25780636d900ed0146100d55780639735c51b14610107575b600080fd5b6100a06004803603604081101561009357600080fd5b5080359060200135610143565b60408051918252519081900360200190f35b6100a0600480360360408110156100c857600080fd5b5080359060200135610156565b8180156100e157600080fd5b50610105600480360360408110156100f857600080fd5b508035906020013561016c565b005b81801561011357600080fd5b506101056004803603608081101561012a57600080fd5b50803590602081013590604081013590606001356101b7565b6000908152602091909152604090205490565b6000908152602091909152604090206001015490565b60006101788383610143565b905060006101868484610156565b6000838152602095909552604080862060019081018390559186528086209390935583855291909320828155015550565b60008281526020949094526040808520600180820186905590839055938552808520839055908452909220015556fea165627a7a723058207cf3537a80f97de4772d6ed9e531cd139e52bd349ee35f10a84128bba65d25ad0029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100785763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166307d29ac9811461007d57806330fe0a0a146100b25780636d900ed0146100d55780639735c51b14610107575b600080fd5b6100a06004803603604081101561009357600080fd5b5080359060200135610143565b60408051918252519081900360200190f35b6100a0600480360360408110156100c857600080fd5b5080359060200135610156565b8180156100e157600080fd5b50610105600480360360408110156100f857600080fd5b508035906020013561016c565b005b81801561011357600080fd5b506101056004803603608081101561012a57600080fd5b50803590602081013590604081013590606001356101b7565b6000908152602091909152604090205490565b6000908152602091909152604090206001015490565b60006101788383610143565b905060006101868484610156565b6000838152602095909552604080862060019081018390559186528086209390935583855291909320828155015550565b60008281526020949094526040808520600180820186905590839055938552808520839055908452909220015556fea165627a7a723058207cf3537a80f97de4772d6ed9e531cd139e52bd349ee35f10a84128bba65d25ad0029",
+  "sourceMap": "27:842:8:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "27:842:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;145:112;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;145:112:8;;;;;;;;;;;;;;;;;;;;;;;;262;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;262:112:8;;;;;;;;601:265;;8:9:-1;5:2;;;30:1;27;20:12;5:2;601:265:8;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;601:265:8;;;;;;;;;;379:217;;8:9:-1;5:2;;;30:1;27;20:12;5:2;379:217:8;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;-1:-1;379:217:8;;;;;;;;;;;;;;;;;;145:112;214:4;232:15;;;;;;;;;;;:20;;145:112::o;262:::-;331:4;349:15;;;;;;;;;;;:20;;;;262:112::o;601:265::-;660:9;672:20;680:4;686:5;672:7;:20::i;:::-;660:32;;697:9;709:20;717:4;723:5;709:7;:20::i;:::-;736:8;:14;;;;;;;;;;;;:19;;;;:26;;;767:14;;;;;;:26;;;;800:15;;;;;;;:28;;;833:20;:28;-1:-1:-1;601:265:8:o;379:217::-;462:8;:15;;;;;;;;;;;;:20;;;;:28;;;495;;;;530:15;;;;;;:28;;;563:15;;;;;;:20;:28;379:217::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nlibrary DLL {\r\n\tstruct Node {\r\n\t\tuint next;\r\n\t\tuint prev;\r\n\t}\r\n\r\n\tstruct Data {\r\n\t\tmapping(uint => Node) dll;\r\n\t}\r\n\r\n\tfunction getNext(Data storage self, uint _curr) public view returns (uint) {\r\n\t\treturn self.dll[_curr].next;\r\n\t}\r\n\r\n\tfunction getPrev(Data storage self, uint _curr) public view returns (uint) {\r\n\t\treturn self.dll[_curr].prev;\r\n\t}\r\n\r\n\tfunction insert(Data storage self, uint _prev, uint _curr, uint _next) public {\r\n\t\tself.dll[_curr].prev = _prev;\r\n\t\tself.dll[_curr].next = _next;\r\n\r\n\t\tself.dll[_prev].next = _curr;\r\n\t\tself.dll[_next].prev = _curr;\r\n\t}\r\n\r\n\tfunction remove(Data storage self, uint _curr) public {\r\n\t\tuint next = getNext(self, _curr);\r\n\t\tuint prev = getPrev(self, _curr);\r\n\r\n\t\tself.dll[next].prev = prev;\r\n\t\tself.dll[prev].next = next;\r\n\r\n\t\tself.dll[_curr].next = _curr;\r\n\t\tself.dll[_curr].prev = _curr;\r\n\t}\r\n}\r\n",
+  "sourcePath": "/Users/shokishoki/development/hypha/distribute-app/contracts/contracts/library/DLL.sol",
   "ast": {
-    "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/library/DLL.sol",
+    "absolutePath": "/Users/shokishoki/development/hypha/distribute-app/contracts/contracts/library/DLL.sol",
     "exportedSymbols": {
       "DLL": [
-        7280
+        7331
       ]
     },
-    "id": 7281,
+    "id": 7332,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7131,
+        "id": 7182,
         "literals": [
           "solidity",
           "^",
-          "0.4",
-          ".21"
+          "0.5",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:8"
+        "src": "0:23:8"
       },
       {
         "baseContracts": [],
@@ -125,24 +129,24 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7280,
+        "id": 7331,
         "linearizedBaseContracts": [
-          7280
+          7331
         ],
         "name": "DLL",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "DLL.Node",
-            "id": 7136,
+            "id": 7187,
             "members": [
               {
                 "constant": false,
-                "id": 7133,
+                "id": 7184,
                 "name": "next",
                 "nodeType": "VariableDeclaration",
-                "scope": 7136,
-                "src": "61:9:8",
+                "scope": 7187,
+                "src": "60:9:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -150,10 +154,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7132,
+                  "id": 7183,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "61:4:8",
+                  "src": "60:4:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -164,11 +168,11 @@
               },
               {
                 "constant": false,
-                "id": 7135,
+                "id": 7186,
                 "name": "prev",
                 "nodeType": "VariableDeclaration",
-                "scope": 7136,
-                "src": "75:9:8",
+                "scope": 7187,
+                "src": "74:9:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -176,10 +180,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7134,
+                  "id": 7185,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "75:4:8",
+                  "src": "74:4:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -191,54 +195,54 @@
             ],
             "name": "Node",
             "nodeType": "StructDefinition",
-            "scope": 7280,
-            "src": "44:45:8",
+            "scope": 7331,
+            "src": "43:45:8",
             "visibility": "public"
           },
           {
             "canonicalName": "DLL.Data",
-            "id": 7141,
+            "id": 7192,
             "members": [
               {
                 "constant": false,
-                "id": 7140,
+                "id": 7191,
                 "name": "dll",
                 "nodeType": "VariableDeclaration",
-                "scope": 7141,
-                "src": "111:25:8",
+                "scope": 7192,
+                "src": "110:25:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                   "typeString": "mapping(uint256 => struct DLL.Node)"
                 },
                 "typeName": {
-                  "id": 7139,
+                  "id": 7190,
                   "keyType": {
-                    "id": 7137,
+                    "id": 7188,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "119:4:8",
+                    "src": "118:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "111:21:8",
+                  "src": "110:21:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                     "typeString": "mapping(uint256 => struct DLL.Node)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 7138,
+                    "id": 7189,
                     "name": "Node",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7136,
-                    "src": "127:4:8",
+                    "referencedDeclaration": 7187,
+                    "src": "126:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Node_$7136_storage_ptr",
+                      "typeIdentifier": "t_struct$_Node_$7187_storage_ptr",
                       "typeString": "struct DLL.Node"
                     }
                   }
@@ -249,15 +253,15 @@
             ],
             "name": "Data",
             "nodeType": "StructDefinition",
-            "scope": 7280,
-            "src": "94:47:8",
+            "scope": 7331,
+            "src": "93:47:8",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7156,
+              "id": 7207,
               "nodeType": "Block",
-              "src": "221:37:8",
+              "src": "220:37:8",
               "statements": [
                 {
                   "expression": {
@@ -268,40 +272,40 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7150,
+                          "id": 7201,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7143,
-                          "src": "233:4:8",
+                          "referencedDeclaration": 7194,
+                          "src": "232:4:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                            "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                             "typeString": "struct DLL.Data storage pointer"
                           }
                         },
-                        "id": 7151,
+                        "id": 7202,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "dll",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7140,
-                        "src": "233:8:8",
+                        "referencedDeclaration": 7191,
+                        "src": "232:8:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                           "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                         }
                       },
-                      "id": 7153,
+                      "id": 7204,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7152,
+                        "id": 7203,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7145,
-                        "src": "242:5:8",
+                        "referencedDeclaration": 7196,
+                        "src": "241:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -312,67 +316,66 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "233:15:8",
+                      "src": "232:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Node_$7136_storage",
+                        "typeIdentifier": "t_struct$_Node_$7187_storage",
                         "typeString": "struct DLL.Node storage ref"
                       }
                     },
-                    "id": 7154,
+                    "id": 7205,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "next",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7133,
-                    "src": "233:20:8",
+                    "referencedDeclaration": 7184,
+                    "src": "232:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7149,
-                  "id": 7155,
+                  "functionReturnParameters": 7200,
+                  "id": 7206,
                   "nodeType": "Return",
-                  "src": "226:27:8"
+                  "src": "225:27:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7157,
+            "id": 7208,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
+            "kind": "function",
             "modifiers": [],
             "name": "getNext",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7146,
+              "id": 7197,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7143,
+                  "id": 7194,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "163:17:8",
+                  "scope": 7208,
+                  "src": "162:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7142,
+                    "id": 7193,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "163:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "162:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -381,11 +384,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7145,
+                  "id": 7196,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "182:10:8",
+                  "scope": 7208,
+                  "src": "181:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -393,10 +396,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7144,
+                    "id": 7195,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "182:4:8",
+                    "src": "181:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -406,20 +409,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "162:31:8"
+              "src": "161:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7149,
+              "id": 7200,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7148,
+                  "id": 7199,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "215:4:8",
+                  "scope": 7208,
+                  "src": "214:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -427,10 +429,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7147,
+                    "id": 7198,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "215:4:8",
+                    "src": "214:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -440,19 +442,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "214:6:8"
+              "src": "213:6:8"
             },
-            "scope": 7280,
-            "src": "146:112:8",
+            "scope": 7331,
+            "src": "145:112:8",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7172,
+              "id": 7223,
               "nodeType": "Block",
-              "src": "338:37:8",
+              "src": "337:37:8",
               "statements": [
                 {
                   "expression": {
@@ -463,40 +465,40 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7166,
+                          "id": 7217,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7159,
-                          "src": "350:4:8",
+                          "referencedDeclaration": 7210,
+                          "src": "349:4:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                            "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                             "typeString": "struct DLL.Data storage pointer"
                           }
                         },
-                        "id": 7167,
+                        "id": 7218,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "dll",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7140,
-                        "src": "350:8:8",
+                        "referencedDeclaration": 7191,
+                        "src": "349:8:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                           "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                         }
                       },
-                      "id": 7169,
+                      "id": 7220,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7168,
+                        "id": 7219,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7161,
-                        "src": "359:5:8",
+                        "referencedDeclaration": 7212,
+                        "src": "358:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -507,67 +509,66 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "350:15:8",
+                      "src": "349:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Node_$7136_storage",
+                        "typeIdentifier": "t_struct$_Node_$7187_storage",
                         "typeString": "struct DLL.Node storage ref"
                       }
                     },
-                    "id": 7170,
+                    "id": 7221,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "prev",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7135,
-                    "src": "350:20:8",
+                    "referencedDeclaration": 7186,
+                    "src": "349:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7165,
-                  "id": 7171,
+                  "functionReturnParameters": 7216,
+                  "id": 7222,
                   "nodeType": "Return",
-                  "src": "343:27:8"
+                  "src": "342:27:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7173,
+            "id": 7224,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
+            "kind": "function",
             "modifiers": [],
             "name": "getPrev",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7162,
+              "id": 7213,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7159,
+                  "id": 7210,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "280:17:8",
+                  "scope": 7224,
+                  "src": "279:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7158,
+                    "id": 7209,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "280:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "279:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -576,11 +577,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7161,
+                  "id": 7212,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "299:10:8",
+                  "scope": 7224,
+                  "src": "298:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -588,10 +589,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7160,
+                    "id": 7211,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "299:4:8",
+                    "src": "298:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -601,20 +602,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "279:31:8"
+              "src": "278:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7165,
+              "id": 7216,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7164,
+                  "id": 7215,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "332:4:8",
+                  "scope": 7224,
+                  "src": "331:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -622,10 +622,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7163,
+                    "id": 7214,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "332:4:8",
+                    "src": "331:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -635,24 +635,24 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "331:6:8"
+              "src": "330:6:8"
             },
-            "scope": 7280,
-            "src": "263:112:8",
+            "scope": 7331,
+            "src": "262:112:8",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7220,
+              "id": 7271,
               "nodeType": "Block",
-              "src": "458:139:8",
+              "src": "457:139:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7191,
+                    "id": 7242,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -665,40 +665,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7184,
+                            "id": 7235,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "463:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "462:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7187,
+                          "id": 7238,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "463:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "462:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7188,
+                        "id": 7239,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7186,
+                          "id": 7237,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7179,
-                          "src": "472:5:8",
+                          "referencedDeclaration": 7230,
+                          "src": "471:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -709,21 +709,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "463:15:8",
+                        "src": "462:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7189,
+                      "id": 7240,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "463:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "462:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -733,31 +733,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7190,
+                      "id": 7241,
                       "name": "_prev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7177,
-                      "src": "486:5:8",
+                      "referencedDeclaration": 7228,
+                      "src": "485:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "463:28:8",
+                    "src": "462:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7192,
+                  "id": 7243,
                   "nodeType": "ExpressionStatement",
-                  "src": "463:28:8"
+                  "src": "462:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7200,
+                    "id": 7251,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -770,40 +770,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7193,
+                            "id": 7244,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "496:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "495:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7196,
+                          "id": 7247,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "496:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "495:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7197,
+                        "id": 7248,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7195,
+                          "id": 7246,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7179,
-                          "src": "505:5:8",
+                          "referencedDeclaration": 7230,
+                          "src": "504:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -814,21 +814,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "496:15:8",
+                        "src": "495:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7198,
+                      "id": 7249,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "496:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "495:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -838,31 +838,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7199,
+                      "id": 7250,
                       "name": "_next",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7181,
-                      "src": "519:5:8",
+                      "referencedDeclaration": 7232,
+                      "src": "518:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "496:28:8",
+                    "src": "495:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7201,
+                  "id": 7252,
                   "nodeType": "ExpressionStatement",
-                  "src": "496:28:8"
+                  "src": "495:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7209,
+                    "id": 7260,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -875,40 +875,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7202,
+                            "id": 7253,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "531:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "530:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7205,
+                          "id": 7256,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "531:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "530:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7206,
+                        "id": 7257,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7204,
+                          "id": 7255,
                           "name": "_prev",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7177,
-                          "src": "540:5:8",
+                          "referencedDeclaration": 7228,
+                          "src": "539:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -919,21 +919,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "531:15:8",
+                        "src": "530:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7207,
+                      "id": 7258,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "531:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "530:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -943,31 +943,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7208,
+                      "id": 7259,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7179,
-                      "src": "554:5:8",
+                      "referencedDeclaration": 7230,
+                      "src": "553:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "531:28:8",
+                    "src": "530:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7210,
+                  "id": 7261,
                   "nodeType": "ExpressionStatement",
-                  "src": "531:28:8"
+                  "src": "530:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7218,
+                    "id": 7269,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -980,40 +980,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7211,
+                            "id": 7262,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "564:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "563:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7214,
+                          "id": 7265,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "564:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "563:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7215,
+                        "id": 7266,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7213,
+                          "id": 7264,
                           "name": "_next",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7181,
-                          "src": "573:5:8",
+                          "referencedDeclaration": 7232,
+                          "src": "572:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1024,21 +1024,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "564:15:8",
+                        "src": "563:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7216,
+                      "id": 7267,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "564:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "563:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1048,63 +1048,62 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7217,
+                      "id": 7268,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7179,
-                      "src": "587:5:8",
+                      "referencedDeclaration": 7230,
+                      "src": "586:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "564:28:8",
+                    "src": "563:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7219,
+                  "id": 7270,
                   "nodeType": "ExpressionStatement",
-                  "src": "564:28:8"
+                  "src": "563:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7221,
+            "id": 7272,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7182,
+              "id": 7233,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7175,
+                  "id": 7226,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "396:17:8",
+                  "scope": 7272,
+                  "src": "395:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7174,
+                    "id": 7225,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "396:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "395:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -1113,11 +1112,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7177,
+                  "id": 7228,
                   "name": "_prev",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "415:10:8",
+                  "scope": 7272,
+                  "src": "414:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1125,10 +1124,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7176,
+                    "id": 7227,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "415:4:8",
+                    "src": "414:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1139,11 +1138,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7179,
+                  "id": 7230,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "427:10:8",
+                  "scope": 7272,
+                  "src": "426:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1151,10 +1150,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7178,
+                    "id": 7229,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "427:4:8",
+                    "src": "426:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1165,11 +1164,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7181,
+                  "id": 7232,
                   "name": "_next",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "439:10:8",
+                  "scope": 7272,
+                  "src": "438:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1177,10 +1176,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7180,
+                    "id": 7231,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "439:4:8",
+                    "src": "438:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1190,39 +1189,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "395:55:8"
+              "src": "394:55:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7183,
+              "id": 7234,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "458:0:8"
+              "src": "457:0:8"
             },
-            "scope": 7280,
-            "src": "380:217:8",
+            "scope": 7331,
+            "src": "379:217:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7278,
+              "id": 7329,
               "nodeType": "Block",
-              "src": "656:211:8",
+              "src": "655:211:8",
               "statements": [
                 {
                   "assignments": [
-                    7229
+                    7280
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7229,
+                      "id": 7280,
                       "name": "next",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7279,
-                      "src": "661:9:8",
+                      "scope": 7329,
+                      "src": "660:9:8",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1230,10 +1228,10 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7228,
+                        "id": 7279,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "661:4:8",
+                        "src": "660:4:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1243,31 +1241,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7234,
+                  "id": 7285,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7231,
+                        "id": 7282,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7223,
-                        "src": "681:4:8",
+                        "referencedDeclaration": 7274,
+                        "src": "680:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7232,
+                        "id": 7283,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7225,
-                        "src": "687:5:8",
+                        "referencedDeclaration": 7276,
+                        "src": "686:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1277,7 +1275,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         },
                         {
@@ -1285,18 +1283,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7230,
+                      "id": 7281,
                       "name": "getNext",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7157,
-                      "src": "673:7:8",
+                      "referencedDeclaration": 7208,
+                      "src": "672:7:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7141_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7192_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (struct DLL.Data storage pointer,uint256) view returns (uint256)"
                       }
                     },
-                    "id": 7233,
+                    "id": 7284,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1304,27 +1302,27 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "673:20:8",
+                    "src": "672:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "661:32:8"
+                  "src": "660:32:8"
                 },
                 {
                   "assignments": [
-                    7236
+                    7287
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7236,
+                      "id": 7287,
                       "name": "prev",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7279,
-                      "src": "698:9:8",
+                      "scope": 7329,
+                      "src": "697:9:8",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1332,10 +1330,10 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7235,
+                        "id": 7286,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "698:4:8",
+                        "src": "697:4:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1345,31 +1343,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7241,
+                  "id": 7292,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7238,
+                        "id": 7289,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7223,
-                        "src": "718:4:8",
+                        "referencedDeclaration": 7274,
+                        "src": "717:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7239,
+                        "id": 7290,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7225,
-                        "src": "724:5:8",
+                        "referencedDeclaration": 7276,
+                        "src": "723:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1379,7 +1377,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         },
                         {
@@ -1387,18 +1385,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7237,
+                      "id": 7288,
                       "name": "getPrev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7173,
-                      "src": "710:7:8",
+                      "referencedDeclaration": 7224,
+                      "src": "709:7:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7141_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7192_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (struct DLL.Data storage pointer,uint256) view returns (uint256)"
                       }
                     },
-                    "id": 7240,
+                    "id": 7291,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1406,19 +1404,19 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "710:20:8",
+                    "src": "709:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "698:32:8"
+                  "src": "697:32:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7249,
+                    "id": 7300,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1431,40 +1429,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7242,
+                            "id": 7293,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "737:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "736:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7245,
+                          "id": 7296,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "737:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "736:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7246,
+                        "id": 7297,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7244,
+                          "id": 7295,
                           "name": "next",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7229,
-                          "src": "746:4:8",
+                          "referencedDeclaration": 7280,
+                          "src": "745:4:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1475,21 +1473,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "737:14:8",
+                        "src": "736:14:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7247,
+                      "id": 7298,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "737:19:8",
+                      "referencedDeclaration": 7186,
+                      "src": "736:19:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1499,31 +1497,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7248,
+                      "id": 7299,
                       "name": "prev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7236,
-                      "src": "759:4:8",
+                      "referencedDeclaration": 7287,
+                      "src": "758:4:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "737:26:8",
+                    "src": "736:26:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7250,
+                  "id": 7301,
                   "nodeType": "ExpressionStatement",
-                  "src": "737:26:8"
+                  "src": "736:26:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7258,
+                    "id": 7309,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1536,40 +1534,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7251,
+                            "id": 7302,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "768:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "767:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7254,
+                          "id": 7305,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "768:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "767:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7255,
+                        "id": 7306,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7253,
+                          "id": 7304,
                           "name": "prev",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7236,
-                          "src": "777:4:8",
+                          "referencedDeclaration": 7287,
+                          "src": "776:4:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1580,21 +1578,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "768:14:8",
+                        "src": "767:14:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7256,
+                      "id": 7307,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "768:19:8",
+                      "referencedDeclaration": 7184,
+                      "src": "767:19:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1604,31 +1602,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7257,
+                      "id": 7308,
                       "name": "next",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7229,
-                      "src": "790:4:8",
+                      "referencedDeclaration": 7280,
+                      "src": "789:4:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "768:26:8",
+                    "src": "767:26:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7259,
+                  "id": 7310,
                   "nodeType": "ExpressionStatement",
-                  "src": "768:26:8"
+                  "src": "767:26:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7267,
+                    "id": 7318,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1641,40 +1639,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7260,
+                            "id": 7311,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "801:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "800:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7263,
+                          "id": 7314,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "801:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "800:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7264,
+                        "id": 7315,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7262,
+                          "id": 7313,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7225,
-                          "src": "810:5:8",
+                          "referencedDeclaration": 7276,
+                          "src": "809:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1685,21 +1683,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "801:15:8",
+                        "src": "800:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7265,
+                      "id": 7316,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "801:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "800:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1709,31 +1707,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7266,
+                      "id": 7317,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7225,
-                      "src": "824:5:8",
+                      "referencedDeclaration": 7276,
+                      "src": "823:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "801:28:8",
+                    "src": "800:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7268,
+                  "id": 7319,
                   "nodeType": "ExpressionStatement",
-                  "src": "801:28:8"
+                  "src": "800:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7276,
+                    "id": 7327,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1746,40 +1744,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7269,
+                            "id": 7320,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "834:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "833:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7272,
+                          "id": 7323,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "834:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "833:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7273,
+                        "id": 7324,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7271,
+                          "id": 7322,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7225,
-                          "src": "843:5:8",
+                          "referencedDeclaration": 7276,
+                          "src": "842:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1790,21 +1788,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "834:15:8",
+                        "src": "833:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7274,
+                      "id": 7325,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "834:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "833:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1814,63 +1812,62 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7275,
+                      "id": 7326,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7225,
-                      "src": "857:5:8",
+                      "referencedDeclaration": 7276,
+                      "src": "856:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "834:28:8",
+                    "src": "833:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7277,
+                  "id": 7328,
                   "nodeType": "ExpressionStatement",
-                  "src": "834:28:8"
+                  "src": "833:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7279,
+            "id": 7330,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7226,
+              "id": 7277,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7223,
+                  "id": 7274,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "618:17:8",
+                  "scope": 7330,
+                  "src": "617:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7222,
+                    "id": 7273,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "618:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "617:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -1879,11 +1876,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7225,
+                  "id": 7276,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "637:10:8",
+                  "scope": 7330,
+                  "src": "636:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1891,10 +1888,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7224,
+                    "id": 7275,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "637:4:8",
+                    "src": "636:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1904,48 +1901,47 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "617:31:8"
+              "src": "616:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7227,
+              "id": 7278,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "656:0:8"
+              "src": "655:0:8"
             },
-            "scope": 7280,
-            "src": "602:265:8",
+            "scope": 7331,
+            "src": "601:265:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7281,
-        "src": "28:842:8"
+        "scope": 7332,
+        "src": "27:842:8"
       }
     ],
-    "src": "0:872:8"
+    "src": "0:871:8"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jessicamarshall/distribute-app/contracts/contracts/library/DLL.sol",
+    "absolutePath": "/Users/shokishoki/development/hypha/distribute-app/contracts/contracts/library/DLL.sol",
     "exportedSymbols": {
       "DLL": [
-        7280
+        7331
       ]
     },
-    "id": 7281,
+    "id": 7332,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7131,
+        "id": 7182,
         "literals": [
           "solidity",
           "^",
-          "0.4",
-          ".21"
+          "0.5",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:8"
+        "src": "0:23:8"
       },
       {
         "baseContracts": [],
@@ -1953,24 +1949,24 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7280,
+        "id": 7331,
         "linearizedBaseContracts": [
-          7280
+          7331
         ],
         "name": "DLL",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "DLL.Node",
-            "id": 7136,
+            "id": 7187,
             "members": [
               {
                 "constant": false,
-                "id": 7133,
+                "id": 7184,
                 "name": "next",
                 "nodeType": "VariableDeclaration",
-                "scope": 7136,
-                "src": "61:9:8",
+                "scope": 7187,
+                "src": "60:9:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1978,10 +1974,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7132,
+                  "id": 7183,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "61:4:8",
+                  "src": "60:4:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1992,11 +1988,11 @@
               },
               {
                 "constant": false,
-                "id": 7135,
+                "id": 7186,
                 "name": "prev",
                 "nodeType": "VariableDeclaration",
-                "scope": 7136,
-                "src": "75:9:8",
+                "scope": 7187,
+                "src": "74:9:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2004,10 +2000,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7134,
+                  "id": 7185,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "75:4:8",
+                  "src": "74:4:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2019,54 +2015,54 @@
             ],
             "name": "Node",
             "nodeType": "StructDefinition",
-            "scope": 7280,
-            "src": "44:45:8",
+            "scope": 7331,
+            "src": "43:45:8",
             "visibility": "public"
           },
           {
             "canonicalName": "DLL.Data",
-            "id": 7141,
+            "id": 7192,
             "members": [
               {
                 "constant": false,
-                "id": 7140,
+                "id": 7191,
                 "name": "dll",
                 "nodeType": "VariableDeclaration",
-                "scope": 7141,
-                "src": "111:25:8",
+                "scope": 7192,
+                "src": "110:25:8",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                   "typeString": "mapping(uint256 => struct DLL.Node)"
                 },
                 "typeName": {
-                  "id": 7139,
+                  "id": 7190,
                   "keyType": {
-                    "id": 7137,
+                    "id": 7188,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "119:4:8",
+                    "src": "118:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "111:21:8",
+                  "src": "110:21:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                     "typeString": "mapping(uint256 => struct DLL.Node)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 7138,
+                    "id": 7189,
                     "name": "Node",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7136,
-                    "src": "127:4:8",
+                    "referencedDeclaration": 7187,
+                    "src": "126:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Node_$7136_storage_ptr",
+                      "typeIdentifier": "t_struct$_Node_$7187_storage_ptr",
                       "typeString": "struct DLL.Node"
                     }
                   }
@@ -2077,15 +2073,15 @@
             ],
             "name": "Data",
             "nodeType": "StructDefinition",
-            "scope": 7280,
-            "src": "94:47:8",
+            "scope": 7331,
+            "src": "93:47:8",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7156,
+              "id": 7207,
               "nodeType": "Block",
-              "src": "221:37:8",
+              "src": "220:37:8",
               "statements": [
                 {
                   "expression": {
@@ -2096,40 +2092,40 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7150,
+                          "id": 7201,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7143,
-                          "src": "233:4:8",
+                          "referencedDeclaration": 7194,
+                          "src": "232:4:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                            "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                             "typeString": "struct DLL.Data storage pointer"
                           }
                         },
-                        "id": 7151,
+                        "id": 7202,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "dll",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7140,
-                        "src": "233:8:8",
+                        "referencedDeclaration": 7191,
+                        "src": "232:8:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                           "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                         }
                       },
-                      "id": 7153,
+                      "id": 7204,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7152,
+                        "id": 7203,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7145,
-                        "src": "242:5:8",
+                        "referencedDeclaration": 7196,
+                        "src": "241:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2140,67 +2136,66 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "233:15:8",
+                      "src": "232:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Node_$7136_storage",
+                        "typeIdentifier": "t_struct$_Node_$7187_storage",
                         "typeString": "struct DLL.Node storage ref"
                       }
                     },
-                    "id": 7154,
+                    "id": 7205,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "next",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7133,
-                    "src": "233:20:8",
+                    "referencedDeclaration": 7184,
+                    "src": "232:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7149,
-                  "id": 7155,
+                  "functionReturnParameters": 7200,
+                  "id": 7206,
                   "nodeType": "Return",
-                  "src": "226:27:8"
+                  "src": "225:27:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7157,
+            "id": 7208,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
+            "kind": "function",
             "modifiers": [],
             "name": "getNext",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7146,
+              "id": 7197,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7143,
+                  "id": 7194,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "163:17:8",
+                  "scope": 7208,
+                  "src": "162:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7142,
+                    "id": 7193,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "163:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "162:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -2209,11 +2204,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7145,
+                  "id": 7196,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "182:10:8",
+                  "scope": 7208,
+                  "src": "181:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2221,10 +2216,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7144,
+                    "id": 7195,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "182:4:8",
+                    "src": "181:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2234,20 +2229,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "162:31:8"
+              "src": "161:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7149,
+              "id": 7200,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7148,
+                  "id": 7199,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7157,
-                  "src": "215:4:8",
+                  "scope": 7208,
+                  "src": "214:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2255,10 +2249,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7147,
+                    "id": 7198,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "215:4:8",
+                    "src": "214:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2268,19 +2262,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "214:6:8"
+              "src": "213:6:8"
             },
-            "scope": 7280,
-            "src": "146:112:8",
+            "scope": 7331,
+            "src": "145:112:8",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7172,
+              "id": 7223,
               "nodeType": "Block",
-              "src": "338:37:8",
+              "src": "337:37:8",
               "statements": [
                 {
                   "expression": {
@@ -2291,40 +2285,40 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7166,
+                          "id": 7217,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7159,
-                          "src": "350:4:8",
+                          "referencedDeclaration": 7210,
+                          "src": "349:4:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                            "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                             "typeString": "struct DLL.Data storage pointer"
                           }
                         },
-                        "id": 7167,
+                        "id": 7218,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "dll",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7140,
-                        "src": "350:8:8",
+                        "referencedDeclaration": 7191,
+                        "src": "349:8:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                           "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                         }
                       },
-                      "id": 7169,
+                      "id": 7220,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7168,
+                        "id": 7219,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7161,
-                        "src": "359:5:8",
+                        "referencedDeclaration": 7212,
+                        "src": "358:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2335,67 +2329,66 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "350:15:8",
+                      "src": "349:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Node_$7136_storage",
+                        "typeIdentifier": "t_struct$_Node_$7187_storage",
                         "typeString": "struct DLL.Node storage ref"
                       }
                     },
-                    "id": 7170,
+                    "id": 7221,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "prev",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7135,
-                    "src": "350:20:8",
+                    "referencedDeclaration": 7186,
+                    "src": "349:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7165,
-                  "id": 7171,
+                  "functionReturnParameters": 7216,
+                  "id": 7222,
                   "nodeType": "Return",
-                  "src": "343:27:8"
+                  "src": "342:27:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7173,
+            "id": 7224,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
+            "kind": "function",
             "modifiers": [],
             "name": "getPrev",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7162,
+              "id": 7213,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7159,
+                  "id": 7210,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "280:17:8",
+                  "scope": 7224,
+                  "src": "279:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7158,
+                    "id": 7209,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "280:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "279:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -2404,11 +2397,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7161,
+                  "id": 7212,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "299:10:8",
+                  "scope": 7224,
+                  "src": "298:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2416,10 +2409,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7160,
+                    "id": 7211,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "299:4:8",
+                    "src": "298:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2429,20 +2422,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "279:31:8"
+              "src": "278:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7165,
+              "id": 7216,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7164,
+                  "id": 7215,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7173,
-                  "src": "332:4:8",
+                  "scope": 7224,
+                  "src": "331:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2450,10 +2442,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7163,
+                    "id": 7214,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "332:4:8",
+                    "src": "331:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2463,24 +2455,24 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "331:6:8"
+              "src": "330:6:8"
             },
-            "scope": 7280,
-            "src": "263:112:8",
+            "scope": 7331,
+            "src": "262:112:8",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7220,
+              "id": 7271,
               "nodeType": "Block",
-              "src": "458:139:8",
+              "src": "457:139:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7191,
+                    "id": 7242,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2493,40 +2485,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7184,
+                            "id": 7235,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "463:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "462:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7187,
+                          "id": 7238,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "463:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "462:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7188,
+                        "id": 7239,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7186,
+                          "id": 7237,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7179,
-                          "src": "472:5:8",
+                          "referencedDeclaration": 7230,
+                          "src": "471:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2537,21 +2529,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "463:15:8",
+                        "src": "462:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7189,
+                      "id": 7240,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "463:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "462:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2561,31 +2553,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7190,
+                      "id": 7241,
                       "name": "_prev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7177,
-                      "src": "486:5:8",
+                      "referencedDeclaration": 7228,
+                      "src": "485:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "463:28:8",
+                    "src": "462:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7192,
+                  "id": 7243,
                   "nodeType": "ExpressionStatement",
-                  "src": "463:28:8"
+                  "src": "462:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7200,
+                    "id": 7251,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2598,40 +2590,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7193,
+                            "id": 7244,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "496:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "495:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7196,
+                          "id": 7247,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "496:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "495:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7197,
+                        "id": 7248,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7195,
+                          "id": 7246,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7179,
-                          "src": "505:5:8",
+                          "referencedDeclaration": 7230,
+                          "src": "504:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2642,21 +2634,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "496:15:8",
+                        "src": "495:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7198,
+                      "id": 7249,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "496:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "495:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2666,31 +2658,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7199,
+                      "id": 7250,
                       "name": "_next",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7181,
-                      "src": "519:5:8",
+                      "referencedDeclaration": 7232,
+                      "src": "518:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "496:28:8",
+                    "src": "495:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7201,
+                  "id": 7252,
                   "nodeType": "ExpressionStatement",
-                  "src": "496:28:8"
+                  "src": "495:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7209,
+                    "id": 7260,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2703,40 +2695,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7202,
+                            "id": 7253,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "531:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "530:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7205,
+                          "id": 7256,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "531:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "530:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7206,
+                        "id": 7257,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7204,
+                          "id": 7255,
                           "name": "_prev",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7177,
-                          "src": "540:5:8",
+                          "referencedDeclaration": 7228,
+                          "src": "539:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2747,21 +2739,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "531:15:8",
+                        "src": "530:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7207,
+                      "id": 7258,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "531:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "530:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2771,31 +2763,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7208,
+                      "id": 7259,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7179,
-                      "src": "554:5:8",
+                      "referencedDeclaration": 7230,
+                      "src": "553:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "531:28:8",
+                    "src": "530:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7210,
+                  "id": 7261,
                   "nodeType": "ExpressionStatement",
-                  "src": "531:28:8"
+                  "src": "530:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7218,
+                    "id": 7269,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2808,40 +2800,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7211,
+                            "id": 7262,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7175,
-                            "src": "564:4:8",
+                            "referencedDeclaration": 7226,
+                            "src": "563:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7214,
+                          "id": 7265,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "564:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "563:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7215,
+                        "id": 7266,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7213,
+                          "id": 7264,
                           "name": "_next",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7181,
-                          "src": "573:5:8",
+                          "referencedDeclaration": 7232,
+                          "src": "572:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2852,21 +2844,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "564:15:8",
+                        "src": "563:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7216,
+                      "id": 7267,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "564:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "563:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2876,63 +2868,62 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7217,
+                      "id": 7268,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7179,
-                      "src": "587:5:8",
+                      "referencedDeclaration": 7230,
+                      "src": "586:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "564:28:8",
+                    "src": "563:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7219,
+                  "id": 7270,
                   "nodeType": "ExpressionStatement",
-                  "src": "564:28:8"
+                  "src": "563:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7221,
+            "id": 7272,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7182,
+              "id": 7233,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7175,
+                  "id": 7226,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "396:17:8",
+                  "scope": 7272,
+                  "src": "395:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7174,
+                    "id": 7225,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "396:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "395:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -2941,11 +2932,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7177,
+                  "id": 7228,
                   "name": "_prev",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "415:10:8",
+                  "scope": 7272,
+                  "src": "414:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2953,10 +2944,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7176,
+                    "id": 7227,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "415:4:8",
+                    "src": "414:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2967,11 +2958,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7179,
+                  "id": 7230,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "427:10:8",
+                  "scope": 7272,
+                  "src": "426:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2979,10 +2970,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7178,
+                    "id": 7229,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "427:4:8",
+                    "src": "426:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2993,11 +2984,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7181,
+                  "id": 7232,
                   "name": "_next",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7221,
-                  "src": "439:10:8",
+                  "scope": 7272,
+                  "src": "438:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3005,10 +2996,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7180,
+                    "id": 7231,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "439:4:8",
+                    "src": "438:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3018,39 +3009,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "395:55:8"
+              "src": "394:55:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7183,
+              "id": 7234,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "458:0:8"
+              "src": "457:0:8"
             },
-            "scope": 7280,
-            "src": "380:217:8",
+            "scope": 7331,
+            "src": "379:217:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7278,
+              "id": 7329,
               "nodeType": "Block",
-              "src": "656:211:8",
+              "src": "655:211:8",
               "statements": [
                 {
                   "assignments": [
-                    7229
+                    7280
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7229,
+                      "id": 7280,
                       "name": "next",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7279,
-                      "src": "661:9:8",
+                      "scope": 7329,
+                      "src": "660:9:8",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -3058,10 +3048,10 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7228,
+                        "id": 7279,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "661:4:8",
+                        "src": "660:4:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -3071,31 +3061,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7234,
+                  "id": 7285,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7231,
+                        "id": 7282,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7223,
-                        "src": "681:4:8",
+                        "referencedDeclaration": 7274,
+                        "src": "680:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7232,
+                        "id": 7283,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7225,
-                        "src": "687:5:8",
+                        "referencedDeclaration": 7276,
+                        "src": "686:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -3105,7 +3095,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         },
                         {
@@ -3113,18 +3103,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7230,
+                      "id": 7281,
                       "name": "getNext",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7157,
-                      "src": "673:7:8",
+                      "referencedDeclaration": 7208,
+                      "src": "672:7:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7141_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7192_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (struct DLL.Data storage pointer,uint256) view returns (uint256)"
                       }
                     },
-                    "id": 7233,
+                    "id": 7284,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3132,27 +3122,27 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "673:20:8",
+                    "src": "672:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "661:32:8"
+                  "src": "660:32:8"
                 },
                 {
                   "assignments": [
-                    7236
+                    7287
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7236,
+                      "id": 7287,
                       "name": "prev",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7279,
-                      "src": "698:9:8",
+                      "scope": 7329,
+                      "src": "697:9:8",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -3160,10 +3150,10 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7235,
+                        "id": 7286,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "698:4:8",
+                        "src": "697:4:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -3173,31 +3163,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7241,
+                  "id": 7292,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7238,
+                        "id": 7289,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7223,
-                        "src": "718:4:8",
+                        "referencedDeclaration": 7274,
+                        "src": "717:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7239,
+                        "id": 7290,
                         "name": "_curr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7225,
-                        "src": "724:5:8",
+                        "referencedDeclaration": 7276,
+                        "src": "723:5:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -3207,7 +3197,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                           "typeString": "struct DLL.Data storage pointer"
                         },
                         {
@@ -3215,18 +3205,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7237,
+                      "id": 7288,
                       "name": "getPrev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7173,
-                      "src": "710:7:8",
+                      "referencedDeclaration": 7224,
+                      "src": "709:7:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7141_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Data_$7192_storage_ptr_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (struct DLL.Data storage pointer,uint256) view returns (uint256)"
                       }
                     },
-                    "id": 7240,
+                    "id": 7291,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3234,19 +3224,19 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "710:20:8",
+                    "src": "709:20:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "698:32:8"
+                  "src": "697:32:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7249,
+                    "id": 7300,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3259,40 +3249,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7242,
+                            "id": 7293,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "737:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "736:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7245,
+                          "id": 7296,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "737:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "736:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7246,
+                        "id": 7297,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7244,
+                          "id": 7295,
                           "name": "next",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7229,
-                          "src": "746:4:8",
+                          "referencedDeclaration": 7280,
+                          "src": "745:4:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3303,21 +3293,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "737:14:8",
+                        "src": "736:14:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7247,
+                      "id": 7298,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "737:19:8",
+                      "referencedDeclaration": 7186,
+                      "src": "736:19:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3327,31 +3317,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7248,
+                      "id": 7299,
                       "name": "prev",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7236,
-                      "src": "759:4:8",
+                      "referencedDeclaration": 7287,
+                      "src": "758:4:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "737:26:8",
+                    "src": "736:26:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7250,
+                  "id": 7301,
                   "nodeType": "ExpressionStatement",
-                  "src": "737:26:8"
+                  "src": "736:26:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7258,
+                    "id": 7309,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3364,40 +3354,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7251,
+                            "id": 7302,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "768:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "767:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7254,
+                          "id": 7305,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "768:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "767:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7255,
+                        "id": 7306,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7253,
+                          "id": 7304,
                           "name": "prev",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7236,
-                          "src": "777:4:8",
+                          "referencedDeclaration": 7287,
+                          "src": "776:4:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3408,21 +3398,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "768:14:8",
+                        "src": "767:14:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7256,
+                      "id": 7307,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "768:19:8",
+                      "referencedDeclaration": 7184,
+                      "src": "767:19:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3432,31 +3422,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7257,
+                      "id": 7308,
                       "name": "next",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7229,
-                      "src": "790:4:8",
+                      "referencedDeclaration": 7280,
+                      "src": "789:4:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "768:26:8",
+                    "src": "767:26:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7259,
+                  "id": 7310,
                   "nodeType": "ExpressionStatement",
-                  "src": "768:26:8"
+                  "src": "767:26:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7267,
+                    "id": 7318,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3469,40 +3459,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7260,
+                            "id": 7311,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "801:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "800:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7263,
+                          "id": 7314,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "801:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "800:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7264,
+                        "id": 7315,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7262,
+                          "id": 7313,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7225,
-                          "src": "810:5:8",
+                          "referencedDeclaration": 7276,
+                          "src": "809:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3513,21 +3503,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "801:15:8",
+                        "src": "800:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7265,
+                      "id": 7316,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "next",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7133,
-                      "src": "801:20:8",
+                      "referencedDeclaration": 7184,
+                      "src": "800:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3537,31 +3527,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7266,
+                      "id": 7317,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7225,
-                      "src": "824:5:8",
+                      "referencedDeclaration": 7276,
+                      "src": "823:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "801:28:8",
+                    "src": "800:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7268,
+                  "id": 7319,
                   "nodeType": "ExpressionStatement",
-                  "src": "801:28:8"
+                  "src": "800:28:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7276,
+                    "id": 7327,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3574,40 +3564,40 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7269,
+                            "id": 7320,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7223,
-                            "src": "834:4:8",
+                            "referencedDeclaration": 7274,
+                            "src": "833:4:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                              "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                               "typeString": "struct DLL.Data storage pointer"
                             }
                           },
-                          "id": 7272,
+                          "id": 7323,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "dll",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 7140,
-                          "src": "834:8:8",
+                          "referencedDeclaration": 7191,
+                          "src": "833:8:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7136_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Node_$7187_storage_$",
                             "typeString": "mapping(uint256 => struct DLL.Node storage ref)"
                           }
                         },
-                        "id": 7273,
+                        "id": 7324,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7271,
+                          "id": 7322,
                           "name": "_curr",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7225,
-                          "src": "843:5:8",
+                          "referencedDeclaration": 7276,
+                          "src": "842:5:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3618,21 +3608,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "834:15:8",
+                        "src": "833:15:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Node_$7136_storage",
+                          "typeIdentifier": "t_struct$_Node_$7187_storage",
                           "typeString": "struct DLL.Node storage ref"
                         }
                       },
-                      "id": 7274,
+                      "id": 7325,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "prev",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7135,
-                      "src": "834:20:8",
+                      "referencedDeclaration": 7186,
+                      "src": "833:20:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3642,63 +3632,62 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7275,
+                      "id": 7326,
                       "name": "_curr",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7225,
-                      "src": "857:5:8",
+                      "referencedDeclaration": 7276,
+                      "src": "856:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "834:28:8",
+                    "src": "833:28:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7277,
+                  "id": 7328,
                   "nodeType": "ExpressionStatement",
-                  "src": "834:28:8"
+                  "src": "833:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 7279,
+            "id": 7330,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7226,
+              "id": 7277,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7223,
+                  "id": 7274,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "618:17:8",
+                  "scope": 7330,
+                  "src": "617:17:8",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                     "typeString": "struct DLL.Data"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7222,
+                    "id": 7273,
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7141,
-                    "src": "618:4:8",
+                    "referencedDeclaration": 7192,
+                    "src": "617:4:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$7141_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$7192_storage_ptr",
                       "typeString": "struct DLL.Data"
                     }
                   },
@@ -3707,11 +3696,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 7225,
+                  "id": 7276,
                   "name": "_curr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "637:10:8",
+                  "scope": 7330,
+                  "src": "636:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3719,10 +3708,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7224,
+                    "id": 7275,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "637:4:8",
+                    "src": "636:4:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3732,31 +3721,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "617:31:8"
+              "src": "616:31:8"
             },
-            "payable": false,
             "returnParameters": {
-              "id": 7227,
+              "id": 7278,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "656:0:8"
+              "src": "655:0:8"
             },
-            "scope": 7280,
-            "src": "602:265:8",
+            "scope": 7331,
+            "src": "601:265:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7281,
-        "src": "28:842:8"
+        "scope": 7332,
+        "src": "27:842:8"
       }
     ],
-    "src": "0:872:8"
+    "src": "0:871:8"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
     "1541712546121": {
@@ -3770,8 +3758,20 @@
       "links": {},
       "address": "0x65bb867e73146289171856653dc21a0245178a58",
       "transactionHash": "0x466091a57b0f0a2fdf057af2b3718aaad7692dfe29a072a37b337a831f6aca11"
+    },
+    "1545334121552": {
+      "events": {},
+      "links": {},
+      "address": "0x7012C60FE954486aEF015aB2dA17F60640e4046f",
+      "transactionHash": "0x3cd65eba815e1946619fe5db6e421fbf483c9d8d48a1b362c6ffa18e50ae7a63"
     }
   },
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-28T20:22:00.749Z"
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2018-12-20T21:42:40.305Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
 }
