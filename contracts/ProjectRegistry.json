@@ -38800,7 +38800,8 @@
             }
           ],
           "name": "TokenRefund",
-          "type": "event"
+          "type": "event",
+          "signature": "0x50ea9274879b4e2a584129ff0e7d656cf15144ef80e8935d4cf890390f8f1580"
         },
         "0x4a0f9497a6a719002da342ea1c08ed0834369f978c47d05dceaed8389fadb4d4": {
           "anonymous": false,
@@ -38822,7 +38823,8 @@
             }
           ],
           "name": "ReputationRefund",
-          "type": "event"
+          "type": "event",
+          "signature": "0x4a0f9497a6a719002da342ea1c08ed0834369f978c47d05dceaed8389fadb4d4"
         },
         "0xf9c1ff30cd80dfe5edf038abaaeaae7e397d81edf49212bb6a48b4b4945b35f0": {
           "anonymous": false,
@@ -38844,7 +38846,8 @@
             }
           ],
           "name": "LogTaskVote",
-          "type": "event"
+          "type": "event",
+          "signature": "0xf9c1ff30cd80dfe5edf038abaaeaae7e397d81edf49212bb6a48b4b4945b35f0"
         },
         "0x978ee0a4f44fe5ddffb59f674aaad2064b139b1148bfdd1f79982c4b50ccbe93": {
           "anonymous": false,
@@ -38866,7 +38869,8 @@
             }
           ],
           "name": "LogTaskValidated",
-          "type": "event"
+          "type": "event",
+          "signature": "0x978ee0a4f44fe5ddffb59f674aaad2064b139b1148bfdd1f79982c4b50ccbe93"
         },
         "0xc2c4343576cc4c1e068e9519653fe8bfe66692ff7af8d10ba5eeb3a14b38677f": {
           "anonymous": false,
@@ -38898,7 +38902,8 @@
             }
           ],
           "name": "LogClaimTaskReward",
-          "type": "event"
+          "type": "event",
+          "signature": "0xc2c4343576cc4c1e068e9519653fe8bfe66692ff7af8d10ba5eeb3a14b38677f"
         },
         "0x8a2d20119a8f9e329bdf9d217c2ae6154c9dbc7a76f84a508e80c831d1a76165": {
           "anonymous": false,
@@ -38910,14 +38915,15 @@
             }
           ],
           "name": "LogProjectExpired",
-          "type": "event"
+          "type": "event",
+          "signature": "0x8a2d20119a8f9e329bdf9d217c2ae6154c9dbc7a76f84a508e80c831d1a76165"
         }
       },
       "links": {
-        "ProjectLibrary": "0x583aadb38c52d134ecc0ee8a26b879f38b62bf05"
+        "ProjectLibrary": "0x8acF42b9A3145600974C4E4D75222e59648B036f"
       },
-      "address": "0xef3c8268261f1025bdb2a9a3d3033cd63024ee2c",
-      "transactionHash": "0x0cfd02651eb66eab90fc3df4659b42ddfae16f650d046674473b8615e68432a8"
+      "address": "0x44B8D6AE7d6D323afdf6aad969e8EA0CF302135a",
+      "transactionHash": "0x7875aec28a87c6ea314f5b4540fd78e92b275740f8f61a5a81c371726f3e086d"
     },
     "1545334121552": {
       "events": {
@@ -39347,7 +39353,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-21T20:46:41.280Z",
+  "updatedAt": "2018-12-21T21:02:12.794Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract must be initialized with the address of a valid Token Registry, Reputation Registry and Distribute Token",

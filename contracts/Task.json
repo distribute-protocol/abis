@@ -9700,6 +9700,12 @@
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xeFb108c620b23D770B729624f575105E44726cc2",
+      "transactionHash": "0x1d1453aae2a09084ddc95444107a1e2d844ce91781f5501465963f4ba4b27511"
+    },
     "1541712546121": {
       "events": {},
       "links": {},
@@ -9732,7 +9738,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-21T20:46:41.079Z",
+  "updatedAt": "2018-12-21T21:02:12.677Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract is initialized by the Project Registry contract with the address of a valid TokenRegistry, and ReputationRegistry.",
