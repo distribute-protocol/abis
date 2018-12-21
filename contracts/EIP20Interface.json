@@ -1793,11 +1793,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-20T21:38:23.650Z",
+  "updatedAt": "2018-12-21T20:37:45.166Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
