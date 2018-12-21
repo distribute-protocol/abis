@@ -41997,10 +41997,152 @@
       },
       "address": "0x20492DCf71d7617217bB2e890ffe1DfE84257B77",
       "transactionHash": "0x372b76d61fcec698d9c385f9492db5a77ddd17bd7d80daaa2eb801ad8c6756bc"
+    },
+    "1545425159698": {
+      "events": {
+        "0x50ea9274879b4e2a584129ff0e7d656cf15144ef80e8935d4cf890390f8f1580": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "staker",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "refund",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenRefund",
+          "type": "event",
+          "signature": "0x50ea9274879b4e2a584129ff0e7d656cf15144ef80e8935d4cf890390f8f1580"
+        },
+        "0x4a0f9497a6a719002da342ea1c08ed0834369f978c47d05dceaed8389fadb4d4": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "projectAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "staker",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "refund",
+              "type": "uint256"
+            }
+          ],
+          "name": "ReputationRefund",
+          "type": "event",
+          "signature": "0x4a0f9497a6a719002da342ea1c08ed0834369f978c47d05dceaed8389fadb4d4"
+        },
+        "0xf9c1ff30cd80dfe5edf038abaaeaae7e397d81edf49212bb6a48b4b4945b35f0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "taskAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "projectAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "pollNonce",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogTaskVote",
+          "type": "event",
+          "signature": "0xf9c1ff30cd80dfe5edf038abaaeaae7e397d81edf49212bb6a48b4b4945b35f0"
+        },
+        "0x978ee0a4f44fe5ddffb59f674aaad2064b139b1148bfdd1f79982c4b50ccbe93": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "taskAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "projectAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "confirmation",
+              "type": "bool"
+            }
+          ],
+          "name": "LogTaskValidated",
+          "type": "event",
+          "signature": "0x978ee0a4f44fe5ddffb59f674aaad2064b139b1148bfdd1f79982c4b50ccbe93"
+        },
+        "0xc2c4343576cc4c1e068e9519653fe8bfe66692ff7af8d10ba5eeb3a14b38677f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "projectAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "claimer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "weiReward",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "reputationReward",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogClaimTaskReward",
+          "type": "event",
+          "signature": "0xc2c4343576cc4c1e068e9519653fe8bfe66692ff7af8d10ba5eeb3a14b38677f"
+        },
+        "0x8a2d20119a8f9e329bdf9d217c2ae6154c9dbc7a76f84a508e80c831d1a76165": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "projectAddress",
+              "type": "address"
+            }
+          ],
+          "name": "LogProjectExpired",
+          "type": "event",
+          "signature": "0x8a2d20119a8f9e329bdf9d217c2ae6154c9dbc7a76f84a508e80c831d1a76165"
+        }
+      },
+      "links": {
+        "ProjectLibrary": "0x40aF892d0cDb1236e8088a141e991ce9e1C0B6C8"
+      },
+      "address": "0x4413D65653C98Be7A947682bcB7Bff55b893fBa4",
+      "transactionHash": "0x10f97a6c1853c98dfca594fe05f04606508d7e6d372fe36cf2f6349ec50fb2b6"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-21T20:37:48.909Z",
+  "updatedAt": "2018-12-21T20:46:41.339Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "methods": {

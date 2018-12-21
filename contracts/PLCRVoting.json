@@ -32961,10 +32961,19 @@
       },
       "address": "0xf7683FB788F2BcF63d11FCb6daB86648E605d347",
       "transactionHash": "0xf9d5e4057bd6b238a73bbe3514af58384677953422a35b2382784e82e42fcda8"
+    },
+    "1545425159698": {
+      "events": {},
+      "links": {
+        "DLL": "0x297957807e46e3fBdF9A01dE13e0860D9C2ba630",
+        "AttributeStore": "0x179B5e5814D99895e2E3844551e277837414C0d8"
+      },
+      "address": "0x6A7433965B3eCA6ab14FfAe52cbc0463b57aBA2a",
+      "transactionHash": "0xfc72a3c7e0b8200af1b16857ecbcbea399e8e2a1880ff6b6e2fe3ed4dd1a5568"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-21T20:37:48.973Z",
+  "updatedAt": "2018-12-21T20:46:41.121Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley, borrowed heavily from Cem Ozer, Aspyn Palatnick, Yorke Rhodes",
     "methods": {

@@ -16742,10 +16742,16 @@
       "links": {},
       "address": "0x0d9160A062B36f304cd715eF1e85caE291eD999A",
       "transactionHash": "0xdba4b1975cfc1c991d0da44fc9b3086ef13452bf90903dc96dda96db8d4579f5"
+    },
+    "1545425159698": {
+      "events": {},
+      "links": {},
+      "address": "0x0f5722a025669a80AE44D0bc7Ed944Ec79C47862",
+      "transactionHash": "0x5745a866073c9523d933cd025e4605885300d98afaf54117c98303ea6b87d7ce"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-21T20:37:48.921Z",
+  "updatedAt": "2018-12-21T20:46:41.090Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract must be initialized with both a TokenRegistry & a ReputationRegistry.",
