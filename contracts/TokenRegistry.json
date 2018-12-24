@@ -41564,10 +41564,10 @@
       },
       "links": {
         "Division": "0xc4c1842e510cf2a0a1a5b9bd72341a07f7830fbe",
-        "ProjectLibrary": "0xB6D49D3DeDA52d34CfEb110970368f2c0F535E4e"
+        "ProjectLibrary": "0xbD3953DDEC30d0Ece737432Ebb71e81E0b80ae30"
       },
-      "address": "0x27D141be97EdfFeda7f4F5777a5cA139fA1f12E7",
-      "transactionHash": "0xeb9ad2f49397c9d0b8b8b5b42c7f15546a82fb24ef3e9fe760db98211e99440e"
+      "address": "0xA8B914Abd92055535309DB0D3ce591ea54E76Cb2",
+      "transactionHash": "0x38a2aef3979da6cbc0cfee24e9daccfe299d1e54f43e47acf4cabd228273e3c5"
     },
     "1545334121552": {
       "events": {
@@ -41998,7 +41998,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-22T23:26:55.742Z",
+  "updatedAt": "2018-12-24T02:44:54.905Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "methods": {

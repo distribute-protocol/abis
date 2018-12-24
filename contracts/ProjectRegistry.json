@@ -38737,10 +38737,10 @@
         }
       },
       "links": {
-        "ProjectLibrary": "0xB6D49D3DeDA52d34CfEb110970368f2c0F535E4e"
+        "ProjectLibrary": "0xbD3953DDEC30d0Ece737432Ebb71e81E0b80ae30"
       },
-      "address": "0x5f0867b21cB82A8B999757e5914642B64ebA71e5",
-      "transactionHash": "0x79e67a23001bd6da3d199bb10c70b1f3251ed44c802da566bbf231cd7b3e9015"
+      "address": "0xe9a93e56Bf1C630d0b1Ae8f4fe730049EAe20360",
+      "transactionHash": "0x9c8505b8b5692183462bcf4dfb3b47adef3fba40a7b1a3feaca44298546429d3"
     },
     "1545334121552": {
       "events": {
@@ -39170,7 +39170,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2018-12-22T23:26:55.696Z",
+  "updatedAt": "2018-12-24T02:44:54.871Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract must be initialized with the address of a valid Token Registry, Reputation Registry and Distribute Token",
