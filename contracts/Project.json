@@ -19553,8 +19553,8 @@
       "links": {
         "Division": "0xc4c1842e510cf2a0a1a5b9bd72341a07f7830fbe"
       },
-      "address": "0x1042492a99Eb15Ce643c2bC11A9c7DE052b6C8B7",
-      "transactionHash": "0xd6002dc11b3a765fdae69ae46dc99e2bc8b617bb240ae725207ef241e7ac53a1"
+      "address": "0xCb9aC5bB53Ea6f42620752760C3dDe3e2C9F5502",
+      "transactionHash": "0x16ad23c34c23a90d4f8f51e4ef9401d4863ad50ae3d494a83a834481230118c1"
     },
     "1545334121552": {
       "events": {},
@@ -19578,7 +19578,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-05T23:19:55.983Z",
+  "updatedAt": "2019-02-06T00:02:13.952Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract is managed and deployed by a Project Registry contract, and must be initialized with a ReputationRegistry and TokenRegistry for full control.",
