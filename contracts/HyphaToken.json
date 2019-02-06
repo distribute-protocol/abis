@@ -16724,12 +16724,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xC8ba581ebDFDeD2475ad12D21Cb7458AC5974Fa1",
-      "transactionHash": "0x40ca38a35312f6f25b62a43861d320c1fcd099d4e48c26db731d747590a91c84"
+      "address": "0x8c8FAc8EA3Fe810d4bDE5b09211381Ec724cF7af",
+      "transactionHash": "0x58193ebd1ddeff05cda4822e0578b174273611b1188a1b66559ca70369eb2c2f"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-06T00:02:13.938Z",
+  "updatedAt": "2019-02-06T00:36:19.611Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract must be initialized with both a TokenRegistry & a ReputationRegistry.",

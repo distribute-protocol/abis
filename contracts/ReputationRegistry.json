@@ -34244,10 +34244,10 @@
       },
       "links": {
         "Division": "0xc4c1842e510cf2a0a1a5b9bd72341a07f7830fbe",
-        "ProjectLibrary": "0xD3d2E06Abc610FcB835bB040A78A9Bf33fAbFCfA"
+        "ProjectLibrary": "0x083C075d12787eF8C35a847e33136B083B1545d8"
       },
-      "address": "0x47CA992216C09F54e19077BdeA0f90341F54a0a4",
-      "transactionHash": "0x29b0daced056b3739d765fe92766f2b1ccd56e99587e6bfc9338691c70ba6859"
+      "address": "0x55295D16663D531A7bd888c6BF78f540444C6b21",
+      "transactionHash": "0xa29039c3a6667acf7b534830b823c9117724c75546d44c1e11efdfc73a89edc6"
     },
     "1545334121552": {
       "events": {
@@ -34678,7 +34678,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-06T00:02:13.976Z",
+  "updatedAt": "2019-02-06T00:36:19.641Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract must be initialized with the address of a valid HyphaToken, ProjectRegistry, and PLCR Voting contract",
