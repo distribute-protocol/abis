@@ -9703,8 +9703,8 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x1798550168B3e61f15f94193684A175e806c4aEA",
-      "transactionHash": "0x18878e629baea1d30e985de2c938cbcb5e609f281e3b57e1fe0df34595b7f429"
+      "address": "0xDF07fd5504fC0c1C7960e4Acb65Dee66B5cb1424",
+      "transactionHash": "0x29998cbe9b6766a3b313e943cfc1a286b68aa627382a45fb04778105402859dd"
     },
     "1541712546121": {
       "events": {},
@@ -9738,7 +9738,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-06T00:36:19.603Z",
+  "updatedAt": "2019-02-11T01:12:45.123Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This contract is initialized by the Project Registry contract with the address of a valid TokenRegistry, and ReputationRegistry.",

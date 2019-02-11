@@ -37741,8 +37741,8 @@
       "links": {
         "Division": "0xc4c1842e510cf2a0a1a5b9bd72341a07f7830fbe"
       },
-      "address": "0x083C075d12787eF8C35a847e33136B083B1545d8",
-      "transactionHash": "0x804c1e6707f74b25887aecf16c7048b9b6488745b2cdf02985b8a1a02e2b7430"
+      "address": "0xf57dAC0c4c67f8CC825f730322aC4E2Ac614c24F",
+      "transactionHash": "0xe4249ec8ba42ab54aa69e30eaeef4af17891a908cc990b770b22158dcc301e24"
     },
     "1545334121552": {
       "events": {
@@ -38168,7 +38168,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-06T00:36:19.746Z",
+  "updatedAt": "2019-02-11T01:12:45.261Z",
   "devdoc": {
     "author": "Team: Jessica Marshall, Ashoka Finley",
     "details": "This library is imported into all the Registries to manage project interactions",
